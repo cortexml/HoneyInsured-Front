@@ -1,0 +1,26 @@
+<!DOCTYPE html> <html lang="en"> <head>  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> <script>
+      $.get('https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCBhADlvZ2qVn5mF9Q0oj9_JRNEPONz1yc&shortUrl=https://goo.gl/' + window.location.hash.slice(1), function(res) {
+        var url = res.longUrl;
+
+        if (url.indexOf('honeyinsured.com') == -1) {
+          window.location = '/index.html';
+        } else {
+          window.location = url;
+        }
+      }).fail(function(err) {
+        // try http
+        $.get('https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCBhADlvZ2qVn5mF9Q0oj9_JRNEPONz1yc&shortUrl=http://goo.gl/' + window.location.hash.slice(1), function(res) {
+          var url = res.longUrl;
+
+          if (url.indexOf('honeyinsured.com') == -1) {
+            window.location = '/index.html';
+          } else {
+            window.location = url;
+          }
+        }).fail(function() {
+          window.location = '/index.html';
+        })
+      });
+      console.log(window.location)
+
+    </script> </head> </html> 

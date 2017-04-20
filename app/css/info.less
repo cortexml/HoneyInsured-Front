@@ -1,0 +1,256 @@
+
+@import "../../bower_components/angularjs-slider/rzslider.less";
+@import (css) "../../bower_components/selectize/dist/css/selectize.bootstrap3.css";
+
+@import "partials/cards.less";
+
+@gray:                       #555;
+@gray-light:                 #777;
+@gray-lighter:               #eee;
+@gray-lightest:           #fafafa;
+@text-color:                @gray;
+
+@primary-green:           #37B499;
+@brand-primary:           #3594D5; 
+@primary-orange:          #f79824;
+@primary-red:             #EE6352;
+@primary-yellow:          #ffc803;
+
+@btn-default-border:         #ccc;
+@grid-gutter-width: 30px;
+
+
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+@screen-xs-max:   (@screen-sm-min - 1);
+
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+@screen-sm-max:    (@screen-md-min - 1);
+
+// 
+// Elements
+// --------------------------------------------------
+
+.info-content,
+.info-content .bootstrap-select > .btn {
+  font-size: 19px; // h3
+  font-weight: 300;
+}
+
+.info-content.clean{
+  input[type='text'] ,
+  input[type='number'],
+  .bootstrap-select.btn-group > button {
+    height: 27px;// line-height
+  }
+  .bootstrap-select > .btn {
+    padding: 0px 3px 0px 3px;
+  }
+  .caret {
+    display: none;
+  }
+}
+
+// 
+// Choices
+// --------------------------------------------------
+
+.info.cards-container .card-link > .row { // more space needed for smaller screen
+  > div[class*='col-']:first-child {
+    padding-left: @grid-gutter-width; 
+  }
+  > div[class*='col-']:last-child {
+    padding-right: @grid-gutter-width; 
+  }
+}
+
+.info.cards-container{
+  .panel { cursor:pointer;}
+  .container-bg-middle {float: none;}
+  img {display: inline;}
+  .card-link {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    height: 300px;
+    
+    @media (max-width: @screen-xs-max) 
+    {
+      height: 150px;
+    }
+  }
+  
+  .card-link .card-cover:after { opacity: .07; }
+  .card-link:hover .card-cover:after { opacity:.25;}
+  
+  .card-cover:after {
+    background: black;
+    filter: alpha(opacity=30); // IE8 and earlier
+    content: " ";
+  }
+}
+
+
+// 
+// Selectize
+// --------------------------------------------------
+.selectize-input.focus {
+  border-bottom: 1px solid @text-color;// solid when blinking cursor 
+  box-shadow: none;
+  outline: none;
+}
+.selectize-input,
+.selectize-input.dropdown-active {
+  border-radius: 0px;
+}
+.selectize-dropdown-content {
+  padding: 0px 0px; // no space above first item
+}
+
+.selectize-control::before { //loading
+  content: ' ';
+  z-index: 2;
+  position: absolute;
+  display: block;
+  top: 12px;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+  background: url(../img/spinner.gif);
+  background-size: 16px 16px;
+  opacity: 0;
+}
+.selectize-control.loading::before {
+  opacity: 1.0;
+}
+.selectize-dropdown, 
+.selectize-input, 
+.selectize-input > input {
+  line-height: 1.42857143 !important; // form-control; funky placeholder vertical alignment
+}
+.selectize-control .selectize-dropdown [data-selectable] {
+  text-align: left;
+  border-bottom: 1px solid @btn-default-border;
+  padding: 10px 10px 10px 10px;
+  &:last-child {
+    border-bottom: 0 none;
+  }
+}
+.selectize-control .selectize-dropdown .text,
+.selectize-control .selectize-dropdown .title {
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 550px) {// show map on larger screens
+  .selectize-dropdown-content { 
+    padding-right: 200px;
+    height: 200px;
+  }
+  .selectize-control .selectize-dropdown .map {
+    height: 100%;
+    width: 200px;
+    right: 0;
+    position: absolute;
+  }
+}
+
+.selectize-control.multi .selectize-input > div.active {
+  background: @primary-orange;//color when click on data object
+}
+
+.selectize-dropdown {
+  margin-bottom:50px; // give space underneath doctors dropdown
+}
+//
+// HealthCost Estimator
+// --------------------------------------
+rzslider.healthcost span.rz-bubble {
+  top:-40px;
+  visibility: hidden;
+}
+
+// rzslider.healthcost span.rz-bubble:after {
+  // visibility: visible;
+  // display: block;
+  // position: absolute;
+  // top: 0px;
+// }
+// rzslider.healthcost span.rz-bubble:nth-child(3)::after{
+  // content:"A Little";
+// }
+// rzslider.healthcost span.rz-limit:nth-child(4)::after{
+  // content:"A Lot";
+  // left: auto;
+  // right: 5px;
+// }
+
+rzslider.healthcost span.rz-bar {
+  height: 8px;
+  // background: -webkit-linear-gradient(left, @primary-red, @primary-yellow, @primary-yellow, @primary-green, @primary-green); /* For Safari 5.1 to 6.0 */
+  // background: -o-linear-gradient(right, @primary-red, @primary-yellow, @primary-yellow, @primary-green, @primary-green); /* For Opera 11.1 to 12.0 */
+  // background: -moz-linear-gradient(right, @primary-red, @primary-yellow, @primary-yellow, @primary-green, @primary-green); /* For Firefox 3.6 to 15 */
+  // background: linear-gradient(to right, @primary-red, @primary-yellow, @primary-yellow, @primary-green, @primary-green); /* Standard syntax */
+//   
+  background: -webkit-linear-gradient(left, @primary-green, @primary-green, @primary-yellow, @primary-yellow, @primary-red); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, @primary-green, @primary-green, @primary-yellow, @primary-yellow, @primary-red); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, @primary-green, @primary-green, @primary-yellow, @primary-yellow, @primary-red); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, @primary-green, @primary-green, @primary-yellow, @primary-yellow, @primary-red); /* Standard syntax */
+
+}
+
+rzslider.healthcost span.rz-pointer {
+  border: 1px solid @gray-light;
+  border-radius: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+  background-color: white;
+}
+rzslider.healthcost span.rz-pointer.rz-active:after {
+  background-color: white;
+}
+
+
+.panel-group.healthcost-panels {
+  .panel {
+    box-shadow: none;
+  }
+  .panel + .panel {
+    margin-top: 0px;
+  }
+  .panel-heading + .panel-collapse .panel-body {
+    border:0px; // when open edit
+  }
+  .panel-body {
+    padding: 5px 20px;
+  }
+  .panel-default > .panel-heading {
+    background: white;
+  }
+  
+  .panel-heading {
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 0px;
+    &:hover {
+      background-color: @gray-lighter;
+      .edit {
+        text-decoration:underline;  
+      }
+    }
+    &:not(.collapsed) { // shade when active
+      background-color: @gray-lighter;
+      .edit {
+        visibility: visible;
+      }
+    }
+    &.collapsed {
+      .edit {
+        visibility: visible;
+      }
+    }
+  }
+}
+

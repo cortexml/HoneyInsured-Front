@@ -1,0 +1,24 @@
+<form class = "index-form">
+  <div class = "col-xs-12 text-center">
+
+    <div class="fadeAnimate-in" ng-if="templateIndex==1">
+      <form>
+        <div class="btn-group bootstrap-select with-ajax open">
+          <div class="dropdown-menu open">
+            <input type="text" ng-model="email.val" class="form-control" placeholder="Email e.g. honey@gmail.com">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-orange btn-lg" ng-click="next()" style = "margin-left: -5px;">
+          Get Early Access
+        </button>
+
+      </form>
+    </div>
+
+    <div class="fadeAnimate-in" ng-if="templateIndex==2">
+      <p>
+        Thanks! We'll be launching soon and will email you then!
+      <p>
+    </div>
+  </div>
+</form>

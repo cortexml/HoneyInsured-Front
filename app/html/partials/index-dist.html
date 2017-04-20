@@ -1,0 +1,48 @@
+<form class = "index-form">
+  <div class = "col-xs-12 text-center">
+
+    <div class="fadeAnimate-in" ng-if="templateIndex==0">
+      <div class="btn-group bootstrap-select with-ajax open">
+        <div class="dropdown-menu open">
+          <input custom-zip type="text" class="form-control" placeholder="Enter Zipcode e.g. 75001">
+          <ul class="dropdown-menu inner" ></ul>
+          <div class="status" style="display: none;">
+            Please enter a valid zipcode.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-orange btn-lg" ng-click="next()" >
+        Get Recommendation
+      </button>
+    </div>
+
+    
+
+    <div class="fadeAnimate-in" ng-if="templateIndex==1">
+      <form>
+        <div class="btn-group bootstrap-select with-ajax open">
+          <div class="dropdown-menu open">
+            <input type="text" ng-model="email.val" class="form-control" placeholder="Email e.g. honey@gmail.com">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-orange btn-lg" ng-click="next()" style = "margin-left: -5px;">
+          Get Early Access
+        </button>
+        <p class = "row-top-15">
+          We'll be expanding into {{location[2]}} soon. Signup and get early access when we serve your area!
+        </p>
+      </form>
+    </div>
+
+    <div class="fadeAnimate-in" ng-if="templateIndex==2">
+      <p>
+        Thanks! Meanwhile, want to check another ZIP code? For your mom?
+      <p></p>
+      We're live in TX, FL, GA, VA, MO, PA, OH, NC, IL, AZ, OR! </p>
+      <button type="submit" class="btn btn-orange btn-lg row-top-15" ng-click="next()" style = "margin-left: -5px;">
+        Try Another Zip Code?
+      </button>
+    </div>
+
+  </div>
+</form>

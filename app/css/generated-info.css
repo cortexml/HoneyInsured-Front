@@ -1,0 +1,301 @@
+/**
+ * Angular JS slider directive
+ *
+ * (c) Rafal Zajac <rzajac@gmail.com>
+ * http://github.com/rzajac/angularjs-slider
+ *
+ * Licensed under the MIT license
+ */
+/* Slider colors */
+/* Slider size parameters */
+@import "../../bower_components/selectize/dist/css/selectize.bootstrap3.css";
+rzslider {
+  display: inline-block;
+  position: relative;
+  height: 4px;
+  width: 100%;
+  margin: 30px 0 15px 0;
+  vertical-align: middle;
+}
+rzslider span {
+  white-space: nowrap;
+  position: absolute;
+  display: inline-block;
+}
+rzslider span.rz-base {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+rzslider span.rz-bar {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #d8e0f3;
+  border-radius: 2px;
+}
+rzslider span.rz-bar.rz-selection {
+  width: 0%;
+  z-index: 1;
+  background: #0db9f0;
+  border-radius: 2px;
+}
+rzslider span.rz-pointer {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  top: -14px;
+  background-color: #0db9f0;
+  z-index: 2;
+  border-radius: 16px;
+}
+rzslider span.rz-pointer:after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 4px;
+  background: #ffffff;
+}
+rzslider span.rz-pointer:hover:after {
+  background-color: #ffffff;
+}
+rzslider span.rz-pointer.rz-active:after {
+  background-color: #451aff;
+}
+rzslider span.rz-bubble {
+  cursor: default;
+  top: -32px;
+  padding: 1px 3px;
+  color: #55637d;
+}
+rzslider span.rz-bubble.rz-selection {
+  top: 16px;
+}
+rzslider span.rz-bubble.rz-limit {
+  color: #55637d;
+}
+.panel {
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0px;
+}
+.panel-body {
+  padding: 20px;
+}
+.card-red .card-cover {
+  background-color: #ee6352;
+}
+.card-blue .card-cover {
+  background-color: #3594d5;
+}
+.card-green .card-cover {
+  background-color: #37b499;
+}
+.card-white .card-cover {
+  background-color: white;
+}
+.card-orange .card-cover {
+  background-color: #f79824;
+}
+.card-title {
+  font-weight: 600;
+}
+.card-text {
+  font-size: 16px;
+}
+.cards-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-link .card-cover,
+.card-link .card-cover:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.cards-container .card-link {
+  display: block;
+  position: relative;
+}
+.info-content,
+.info-content .bootstrap-select > .btn {
+  font-size: 19px;
+  font-weight: 300;
+}
+.info-content.clean input[type='text'],
+.info-content.clean input[type='number'],
+.info-content.clean .bootstrap-select.btn-group > button {
+  height: 27px;
+}
+.info-content.clean .bootstrap-select > .btn {
+  padding: 0px 3px 0px 3px;
+}
+.info-content.clean .caret {
+  display: none;
+}
+.info.cards-container .card-link > .row > div[class*='col-']:first-child {
+  padding-left: 30px;
+}
+.info.cards-container .card-link > .row > div[class*='col-']:last-child {
+  padding-right: 30px;
+}
+.info.cards-container .panel {
+  cursor: pointer;
+}
+.info.cards-container .container-bg-middle {
+  float: none;
+}
+.info.cards-container img {
+  display: inline;
+}
+.info.cards-container .card-link {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  height: 300px;
+}
+@media (max-width: 767px) {
+  .info.cards-container .card-link {
+    height: 150px;
+  }
+}
+.info.cards-container .card-link .card-cover:after {
+  opacity: .07;
+}
+.info.cards-container .card-link:hover .card-cover:after {
+  opacity: .25;
+}
+.info.cards-container .card-cover:after {
+  background: black;
+  filter: alpha(opacity=30);
+  content: " ";
+}
+.selectize-input.focus {
+  border-bottom: 1px solid #555555;
+  box-shadow: none;
+  outline: none;
+}
+.selectize-input,
+.selectize-input.dropdown-active {
+  border-radius: 0px;
+}
+.selectize-dropdown-content {
+  padding: 0px 0px;
+}
+.selectize-control::before {
+  content: ' ';
+  z-index: 2;
+  position: absolute;
+  display: block;
+  top: 12px;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+  background: url(../img/spinner.gif);
+  background-size: 16px 16px;
+  opacity: 0;
+}
+.selectize-control.loading::before {
+  opacity: 1.0;
+}
+.selectize-dropdown,
+.selectize-input,
+.selectize-input > input {
+  line-height: 1.42857143 !important;
+}
+.selectize-control .selectize-dropdown [data-selectable] {
+  text-align: left;
+  border-bottom: 1px solid #cccccc;
+  padding: 10px 10px 10px 10px;
+}
+.selectize-control .selectize-dropdown [data-selectable]:last-child {
+  border-bottom: 0 none;
+}
+.selectize-control .selectize-dropdown .text,
+.selectize-control .selectize-dropdown .title {
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 550px) {
+  .selectize-dropdown-content {
+    padding-right: 200px;
+    height: 200px;
+  }
+  .selectize-control .selectize-dropdown .map {
+    height: 100%;
+    width: 200px;
+    right: 0;
+    position: absolute;
+  }
+}
+.selectize-control.multi .selectize-input > div.active {
+  background: #f79824;
+}
+.selectize-dropdown {
+  margin-bottom: 50px;
+}
+rzslider.healthcost span.rz-bubble {
+  top: -40px;
+  visibility: hidden;
+}
+rzslider.healthcost span.rz-bar {
+  height: 8px;
+  background: -webkit-linear-gradient(left, #37b499, #37b499, #ffc803, #ffc803, #ee6352);
+  /* For Safari 5.1 to 6.0 */
+  /* For Opera 11.1 to 12.0 */
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #37b499, #37b499, #ffc803, #ffc803, #ee6352);
+  /* Standard syntax */
+}
+rzslider.healthcost span.rz-pointer {
+  border: 1px solid #777777;
+  border-radius: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+rzslider.healthcost span.rz-pointer.rz-active:after {
+  background-color: white;
+}
+.panel-group.healthcost-panels .panel {
+  box-shadow: none;
+}
+.panel-group.healthcost-panels .panel + .panel {
+  margin-top: 0px;
+}
+.panel-group.healthcost-panels .panel-heading + .panel-collapse .panel-body {
+  border: 0px;
+}
+.panel-group.healthcost-panels .panel-body {
+  padding: 5px 20px;
+}
+.panel-group.healthcost-panels .panel-default > .panel-heading {
+  background: white;
+}
+.panel-group.healthcost-panels .panel-heading {
+  padding: 5px 20px;
+  cursor: pointer;
+  border-radius: 0px;
+}
+.panel-group.healthcost-panels .panel-heading:hover {
+  background-color: #eeeeee;
+}
+.panel-group.healthcost-panels .panel-heading:hover .edit {
+  text-decoration: underline;
+}
+.panel-group.healthcost-panels .panel-heading:not(.collapsed) {
+  background-color: #eeeeee;
+}
+.panel-group.healthcost-panels .panel-heading:not(.collapsed) .edit {
+  visibility: visible;
+}
+.panel-group.healthcost-panels .panel-heading.collapsed .edit {
+  visibility: visible;
+}

@@ -1,0 +1,7 @@
+<!DOCTYPE html> <html lang="en"> <head>  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> <script>
+      $.get('/index.html', function(res) {
+        window.location = '/index.html';
+      }).fail(function(err) {
+        $('#text').html("Sorry we don't serve HoneyInsured outside of the US :'(");
+      });
+    </script> </head> <body> <h1 id="text"></h1> </body> </html> 

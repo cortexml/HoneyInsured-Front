@@ -1,0 +1,350 @@
+h1,
+h2,
+h3,
+h4,
+p {
+  font-weight: 300;
+}
+hr {
+  border-color: #cccccc;
+}
+hr.orange {
+  border-color: #f79824;
+}
+.capitalize {
+  text-transform: uppercase;
+}
+.indent {
+  margin-left: 15px;
+}
+.title {
+  color: #f79824;
+}
+.subtitle {
+  font-size: 19px;
+}
+.form-control {
+  font-size: 16px;
+  height: 44px;
+}
+input[type='text'],
+input[type='email'],
+.bootstrap-select.btn-group,
+.bootstrap-select.btn-group > button {
+  height: 44px;
+}
+.index-form .btn {
+  padding: 11px 27px;
+  font-size: 16px;
+  height: 44px;
+}
+@media (max-width: 535px) {
+  .index-form input {
+    text-align: center;
+  }
+}
+.index-form .form-control {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.index-form .btn-orange {
+  border-color: #f79824;
+  border-bottom-color: #f79824;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  margin-left: -5px;
+}
+.index-form .btn-orange:active,
+.index-form .btn-orange.active,
+.open > .dropdown-toggle.index-form .btn-orange {
+  background-color: #ea8409;
+  border-color: #ea8409;
+  border-bottom: 1px solid #ea8409;
+}
+.index-form .btn-orange:active:hover,
+.index-form .btn-orange.active:hover,
+.open > .dropdown-toggle.index-form .btn-orange:hover {
+  background-color: #ea8409;
+  border-color: #ea8409;
+}
+.index-form .btn-orange:hover {
+  background-color: #ea8409;
+  border-color: #ea8409;
+}
+.index-form .btn-orange:focus,
+.index-form .btn-orange.focus {
+  background-color: #f79824;
+  border-color: #f79824;
+  border-bottom-color: #f79824;
+}
+@media (max-width: 535px) {
+  .index-form .btn-orange {
+    margin-top: 15px;
+    margin-left: 0px;
+  }
+}
+.index-form .dropdown-menu,
+.index-form input {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+@media (max-width: 535px) {
+  .index-form .btn-group.bootstrap-select.with-ajax.open:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    display: block;
+  }
+}
+@media (max-width: 991px) {
+  .index-form .btn-group.bootstrap-select.with-ajax.open:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    min-width: 250px;
+  }
+}
+.hero {
+  background-image: url(../img/hero.png);
+  color: white;
+  height: 500px;
+  background-position: 85% 30%;
+}
+.container-hero {
+  top: 55px;
+  position: relative;
+  height: 445px;
+  padding-bottom: 0px;
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 450px;
+  }
+  .container-hero {
+    height: 395px;
+    padding-bottom: 100px;
+  }
+}
+.bg-hero::before {
+  background: rgba(62, 42, 63, 0.7);
+}
+.bg-about::before {
+  background: rgba(0, 0, 0, 0.5);
+}
+.bg-guide::before {
+  background: rgba(0, 0, 0, 0.3);
+}
+.bg-purple:before {
+  background: rgba(31, 87, 122, 0.7);
+}
+.bg-green:before {
+  background: #37b499;
+}
+.bg-blue:before {
+  background: #3594d5;
+}
+.press-ribbon > .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.press-ribbon img {
+  opacity: 0.5;
+}
+.ribbon-hero {
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: absolute;
+}
+.ribbon-hero > .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+@media (min-width: 768px) {
+  .container-bg-sm {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+  }
+  .container-subsidies {
+    height: 300px;
+  }
+  .container-risk {
+    height: 380px;
+  }
+  .container-doctor {
+    height: 260px;
+  }
+}
+@media (min-width: 992px) {
+  .container-bg-md {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+  }
+  .container-bg-md-middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .container-personal {
+    height: 250px;
+  }
+  .container-visualize {
+    height: 280px;
+  }
+  .container-simple {
+    height: 140px;
+  }
+  .container-enroll {
+    height: 110px;
+  }
+}
+.hero-title {
+  font-weight: 600;
+  font-size: 30px;
+}
+.container-user {
+  padding: 15px;
+}
+.user-panel {
+  background-color: white;
+  padding: 20px;
+  height: 250px;
+  overflow: hidden;
+}
+@media (max-width: 991px) {
+  .user-panel {
+    height: 350px;
+  }
+}
+@media (max-width: 767px) {
+  .user-panel {
+    height: auto;
+  }
+}
+.user .user-info {
+  display: inline-block;
+}
+.user img {
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+}
+.user .user-press {
+  height: 25px;
+}
+.user-info {
+  font-weight: bold;
+  height: 50px;
+}
+.press-feature {
+  height: 250px;
+}
+.press-feature > .row,
+.press-feature > .row > .col-xs-1 {
+  height: 100%;
+  cursor: pointer;
+}
+.press-feature .glyphicon {
+  color: #f79824;
+  font-size: 2em;
+}
+@media (min-width: 768px) {
+  .press-feature {
+    height: 350px;
+  }
+}
+.press-container {
+  background-color: #eeeeee;
+  padding: 30px;
+}
+.press-container .press-img {
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+}
+.press-container .press-download {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  border-top: 0px;
+}
+.member-photo img {
+  width: 110px;
+  height: 110px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+#quotes-panel {
+  position: absolute;
+  width: 315px;
+  top: 0px;
+}
+@media (max-width: 991px) {
+  #quotes-panel {
+    width: auto;
+    position: static;
+  }
+}
+#quotes-panel.stuck {
+  position: fixed;
+  top: 55px;
+}
+#quotes-panel.bottom {
+  position: absolute;
+}
+#quotes-banner {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#quotes-banner.stuck {
+  width: auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 55px;
+  opacity: 1;
+  z-index: 1000;
+}
+#quotes-banner-placeholder {
+  display: block;
+}
+.chart {
+  margin: 0 auto 0 auto;
+}
+#barChart {
+  height: 280px;
+  width: 400px;
+}
+@media (max-width: 650px) {
+  #barChart {
+    width: 300px;
+    height: 280px;
+  }
+}
+#map_election {
+  min-height: 300px;
+  height: auto;
+  width: 600px;
+}
+@media (max-width: 650px) {
+  #map_election {
+    min-width: 300px;
+    width: auto;
+    height: 150px;
+  }
+}
+#pieChart {
+  min-height: 300px;
+  height: auto;
+  width: 600px;
+}
+@media (max-width: 650px) {
+  #pieChart {
+    min-width: 300px;
+    width: auto;
+    height: 150px;
+  }
+}
+.panel {
+  border: 1px solid #777777;
+}
+.blog-img {
+  max-height: 250px;
+}

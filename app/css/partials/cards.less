@@ -1,0 +1,56 @@
+@primary-green:           #37B499;
+@brand-primary:           #3594D5; 
+@primary-orange:          #f79824;
+@primary-red:             #EE6352;
+@primary-yellow:          #ffc803;
+
+.panel {
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0px;
+}
+.panel-body {
+  padding: 20px;
+}
+
+.card-red .card-cover {
+  background-color: @primary-red;
+}
+.card-blue .card-cover {
+  background-color: @brand-primary;
+}
+.card-green .card-cover {
+  background-color: @primary-green;
+}
+.card-white .card-cover {
+  background-color: white;
+}
+.card-orange .card-cover {
+  background-color: @primary-orange;
+}
+
+.card-title {
+  font-weight: 600;
+}
+.card-text {
+  font-size: 16px;
+}
+.cards-container {
+  max-width: 1400px; // test
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-link .card-cover,
+.card-link .card-cover:after{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.cards-container .card-link{
+  display:block;
+  position: relative;
+}

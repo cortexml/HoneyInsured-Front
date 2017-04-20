@@ -1,0 +1,16 @@
+<div class = "col-md-2 hidden-xs hidden-sm" ng-controller="blogCtrl">
+  <div id = "quotes-panel" class = "press-container">
+    <h3 class = "title row-bottom-15">Get Insurance Tips</h3>
+    <p class = "row-bottom-15">
+      Learn how to find the sweetest insurance - straight from your inbox!
+    </p>
+    <input type="text" class="form-control" placeholder="Your email" ng-model="email.val" ng-if="!email.submitted">
+    <p class = "row-bottom-15" style="margin-top:15px;" ng-if="email.submitted">
+      Thanks for signing up! You will be receiving our tips now.
+    </p>
+    <button type="submit" class="btn btn-orange btn-md btn-block btn-static row-top-15" ng-if="!email.submitted" ng-click="subscribe()">
+      Sign Up
+    </button>
+  </div>
+</div>
+

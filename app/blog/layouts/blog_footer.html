@@ -1,0 +1,40 @@
+</div>
+</div>
+</section>
+
+<section class = "bg bg-blue" ng-controller="staticCtrl" id = "banner-bottom">
+  <div class = "container-large">
+    <div class = "row row-top-50 row-bottom-50" style = "color: white;">
+      <div class = "col-xs-12 text-center">
+        <h3 class = "row-bottom-15">That was a lot of work! Don't worry, let us take care of all your preferences.</h3>
+        <p class = "row-bottom-15">
+          Get your personalized plan recommendation, explore your options, and enroll in 5 minutes.
+        </p>
+      </div>
+
+      @@include('../../html/partials/index-dist.html')
+    </div>
+  </div>
+</section>
+
+<!-- Fix header -->
+<script>
+  $('.navbar.navbar-default').removeClass('navbar-fixed-top navbar-small').addClass('navbar-top');
+  new Waypoint({
+    element : $('section>div.container-large')[0],
+    handler : function(direction) {
+      if (direction == 'down') {
+        $('.navbar').removeClass('navbar-top');
+        $('.navbar').addClass('navbar-scroll navbar-fixed-top');
+      } else {
+        $('.navbar').removeClass('navbar-scroll navbar-fixed-top');
+        $('.navbar').addClass('navbar-top');
+      }
+    },
+    offset : -55 // size of hero
+  }); 
+</script>
+@@include('../../html/layouts/footer.html')
+
+</body>
+</html>

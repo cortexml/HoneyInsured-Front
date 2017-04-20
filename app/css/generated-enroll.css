@@ -1,0 +1,31 @@
+.enroll-content,
+.bootstrap-select > .btn {
+  font-weight: 300;
+  font-size: 16px;
+}
+.person .close {
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+.person {
+  margin-bottom: 15px;
+}
+.person > .row {
+  margin-bottom: 5px;
+}
+.person + .person {
+  border-top: 1px solid #cccccc;
+  padding-top: 15px;
+}
+ul.attestations > li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.immigration-docs {
+  margin-bottom: 15px;
+}
+.immigration-docs input,
+.immigration-docs .btn-group {
+  margin-top: 10px;
+}

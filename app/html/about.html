@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    @@include('layouts/meta.html')
+
+    <!-- CSS -->
+    <link href="css/generated-theme.css" rel="stylesheet">
+    <link href="css/generated-static.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CDN -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+
+    <!-- Group 1 -->
+    @@include('layouts/js-import.html')
+
+    <!-- Custom -->
+
+  </head>
+
+  <body>
+
+    @@include('layouts/header.html')
+
+    <!----------------------------------------
+    Page Content
+    --------------------------------------->
+    <section class = "bg bg-about" style = "background-image: url(../img/about.jpg); background-position: center 15%;">
+      <div class = "container-large">
+
+        <div class = "row row-top-100 row-bottom-50">
+          <div class = "col-xs-10 col-xs-offset-1 text-center">
+            <h3 class = "row-bottom-25 hero-title" style = "color: white;">About HoneyInsured</h3>
+            <p style = "color: white;" class = "subtitle">
+              Founded by the friendliest data nerds, HoneyInsured strives to put the best computer technology on your side for a change. Our user-friendly apps can instantly estimate subsidies and health costs, track physicians, and even find the best plans for expectant mothers or self-employed workers. HoneyInsured uses all of the technology and data that corporations use to put the most powerful health technology where it belongs - at your fingertips.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class = "container-large" >
+        <div class = "row ">
+          <div class = "col-xs-12 text-center">
+            <h3 class = "title row-top-50 row-bottom-50">Our Founders</h3>
+          </div>
+        </div>
+
+        <ul class = "list-unstyled">
+          <div class = "row row-bottom-50">
+            <li class = "col-md-6 col-xs-12" style = "padding-left: 15px;">
+              <div class = "pull-left member-photo">
+                <img class = "img-circle" src = "img/grace.png" >
+              </div>
+              <div style = "display: table-cell;">
+                <b> Grace Gee </b>, CEO
+                <div class = "row-top-15">
+                  Grace Gee wants to fix the healthcare system by arming consumers with the data and technology necessary to make their best health insurance decision. A Magna Cum Laude graduate in Applied Mathematics from Harvard, Grace has worked as a software engineer on Microsoft’s Bing platform team. She is also a recipient of the prestigious <a target = "_blank" href = "http://www.thielfellowship.org/about/about-the-fellowship/">20 Under 20 Thiel Fellowship</a>.
+                </div>
+              </div>
+            </li>
+
+            <li class = "col-md-6 col-xs-12 col-md-responsive" style = "padding-left: 15px;">
+              <div class = "pull-left member-photo">
+                <img class = "img-circle" src = "img/eugene.png" >
+              </div>
+              <div style = "display: table-cell;">
+                <b> Eugene Wang </b>, CTO
+                <div class = "row-top-15">
+                  Eugene Wang, co-Founder of HoneyInsured, is the pioneering developer of the advanced research and statistical models that power HoneyInsured. Eugene graduated Top 24 (Junior 24 Phi Beta Kappa) from Harvard University with an Applied Math degree. Eugene has an extensive background in economic research, including his work at Paulson & Co. He was also previously mentioned by the US. Federal Reserve for winning their annual <a target = "_blank" href = "http://www.federalreserve.gov/newsevents/press/other/20131202a.htm">Federal Reserve Challenge</a>.
+                </div>
+              </div>
+
+            </li>
+
+          </div>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- Fix header -->
+    <script>
+      $('.navbar.navbar-default').removeClass('navbar-fixed-top navbar-small').addClass('navbar-top');
+      new Waypoint({
+        element : $('section>div.container-large')[0],
+        handler : function(direction) {
+          if (direction == 'down') {
+            $('.navbar').removeClass('navbar-top');
+            $('.navbar').addClass('navbar-scroll navbar-fixed-top');
+          } else {
+            $('.navbar').removeClass('navbar-scroll navbar-fixed-top');
+            $('.navbar').addClass('navbar-top');
+          }
+        },
+        offset : -55 // size of hero
+      });
+    </script>
+
+    @@include('layouts/footer.html')
+  </body>
+</html>

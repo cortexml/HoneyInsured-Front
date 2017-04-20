@@ -1,0 +1,24 @@
+<div class = "row row-top-15" ng-if="@@var!=planSelected">
+  <div class = "col-xs-12 hidden-xs">
+    <button class="btn btn-block btn-default btn-lg" ng-click="triggerPlanCompare(@@var)">
+      Compare With Current Plan
+    </button>
+  </div>
+  <div class = "col-xs-12 hidden-sm hidden-md hidden-lg">
+    <button class="btn btn-block btn-default btn-lg" ng-click="triggerPlanCompare(@@var)">
+      Compare W. Current Plan
+    </button>
+  </div>
+</div>
+<div class = "row row-top-5" ng-if="@@var!=planSelected">
+  <div class = "col-xs-12">
+    <button class="btn btn-block btn-default btn-lg" ng-click="selectPlan(@@var)">
+      View Plan Details
+    </button>
+  </div>
+</div>
+<div class = "row row-top-15" ng-if="@@var==planSelected">
+  <div class = "col-xs-12 text-center">
+    This is currently the plan you're viewing.
+  </div>
+</div>

@@ -1,0 +1,51 @@
+@primary-orange:          #f79824;
+
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+@screen-xs-max:   (@screen-sm-min - 1);
+
+//
+// Accidents
+// --------------------------------------
+
+.btn-group.scenarios .btn {
+  font-weight: 300;
+  width: 50%;
+}
+.btn-group.scenarios {
+  .btn + .btn {
+    margin-left: 0px; // funky bootstrap margin-left: -1px;
+  }
+  
+  .btn {
+    border-radius: 0px;
+    &:hover {
+      background-color: lighten(@primary-orange, 30%);
+    }
+    > i[class^='icon-'] {
+      color: @primary-orange;
+    }
+  }
+  @media (max-width: @screen-xs-max) {
+    .btn {
+      width: 100%;
+    }
+  }
+  .btn.active {
+    background-color: @primary-orange;
+    color: white;
+    
+    > i[class^='icon-'] {
+      color: white;
+    }
+  }
+}
+@media (max-width: @screen-xs-max) { 
+  .accident-container {
+    display: table; // container-bg
+    table-layout: fixed;
+    // width: 100%;
+    height: 288px; // height of scenarios stacked up
+  }
+  
+}

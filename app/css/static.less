@@ -1,0 +1,426 @@
+@btn-default-bg:    #fff;
+@btn-default-border:#ccc;
+@primary-orange: #f79824;
+@primary-purple:          #9F6AA1;
+@screen-sm:        768px;
+@screen-sm-min:              @screen-sm;
+@screen-xs-max:              (@screen-sm-min - 1);
+
+@screen-xs:        480px;
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+@screen-sm-max:              (@screen-md-min - 1);
+@gray-lighter:      #eee;
+
+@gray:                       #555;
+@gray-light:                 #777;
+@gray-lighter:               #eee;
+@gray-lightest:           #fafafa;
+@text-color:                @gray;
+
+
+  
+// body {
+  // font-weight: 300;
+  // font-size: 16px;
+// }
+
+h1, h2, h3, h4, p {
+  font-weight: 300;
+}
+
+hr {
+  border-color: @btn-default-border;
+}
+hr.orange {
+  border-color: @primary-orange;
+}
+.capitalize {
+  text-transform: uppercase;
+}
+.indent {
+  margin-left: 15px;
+}
+.title {
+  color: @primary-orange;
+}
+.subtitle {
+  font-size: 19px;
+}
+.form-control {
+  // border-style: none; // input box
+  font-size: 16px;
+  height: 44px;
+}
+
+input[type='text'], // overwrite from theme.less
+input[type='email'],
+.bootstrap-select.btn-group,
+.bootstrap-select.btn-group > button 
+{
+  height: 44px;
+} 
+
+//
+// Index Form
+// --------------------------------------------------
+
+.index-form {
+  .btn {
+    padding: 11px 27px;
+    font-size: 16px;
+    height: 44px;
+  }
+  input {
+    @media (max-width:535px) { 
+      text-align: center;
+    }
+  }
+  .form-control {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius:2px;
+  }
+  .btn-orange {
+    border-color: @primary-orange;
+    border-bottom-color: @primary-orange;
+    border-top-left-radius:0px;
+    border-bottom-left-radius:0px;
+    
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+      background-color: darken(@primary-orange, 8%);
+          border-color: darken(@primary-orange, 8%);
+          border-bottom: 1px solid darken(@primary-orange, 8%);
+  
+      &:hover {
+        background-color: darken(@primary-orange, 8%);
+            border-color: darken(@primary-orange, 8%);
+      }
+    }
+    
+    &:hover {
+      background-color: darken(@primary-orange, 8%);
+          border-color: darken(@primary-orange, 8%);
+    }
+    &:focus, // same as regular button
+    &.focus {
+      background-color:@primary-orange;
+      border-color:@primary-orange;
+      border-bottom-color:@primary-orange;
+    }
+    
+    margin-left: -5px;
+    @media (max-width:535px) {  // same width as the one below for bootstrap-select
+      margin-top:15px;
+      margin-left: 0px;
+    }
+  }
+ 
+  .dropdown-menu, input {
+    border-top-left-radius:2px;
+    border-bottom-left-radius:2px;
+  }
+  .btn-group.bootstrap-select.with-ajax.open:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn)
+  {
+    @media (max-width:535px) { //534px
+      display:block; // input to take up full width and force button to next line
+      // width: 250px;
+    }
+    
+    @media (max-width:@screen-sm-max) { 
+      min-width: 250px;
+    }
+  }
+}
+
+.hero {
+  background-image: url(../img/hero.png);
+  color: white;
+  height: 500px;
+  
+  background-position: 85% 30%;
+}
+.container-hero {  
+  top: 55px;
+  position: relative;
+  height: 445px;
+  padding-bottom: 0px;
+}
+
+@media (min-width: @screen-sm) {
+  .hero {
+    height: 450px;
+  }
+  .container-hero { // container-hero needs to be slightly smaller to allow ribbon
+    height:395px;
+    padding-bottom: 100px;
+  }
+}
+
+.bg-hero::before {
+  background: rgba(62, 42, 63,0.7);
+}
+.bg-about::before {
+  background: rgba(0, 0, 0, 0.5);
+}
+.bg-guide::before {
+  background: rgba(0, 0, 0, 0.3);
+}
+.bg-ready:before {
+  // background: rgba(0, 0, 0, 0.4);
+  // background:rgba(248,123,0, 0.4);
+  // background:rgba(23, 75, 110, 0.6);
+}
+
+.bg-purple:before {
+  background: rgba(31, 87, 122,0.7);
+  // background:rgba(23, 75, 110, 0.6);
+}
+.bg-green:before {
+  background: rgb(55,180,153, 1.0);
+}
+.bg-blue:before {
+  background: rgb(53, 148, 213, 1.0);
+}
+
+.press-ribbon 
+{
+  > .row {
+    margin-left:0px;
+    margin-right:0px;
+  }
+ 
+  img {
+    opacity:0.5;
+  }
+}
+
+.ribbon-hero {
+  background-color: rgba(0,0,0,0.3);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: absolute;
+  
+  >.row {
+    margin-left: 0px; // get rid of extra space
+    margin-right: 0px;
+  }
+}
+
+
+@media (min-width:@screen-sm-min) {  
+  .container-bg-sm {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+  }
+  .container-subsidies {// guide
+    height:300px;
+  }
+  .container-risk { // guide
+    height:380px;
+  }
+  .container-doctor {
+    height:260px;
+  }
+}
+@media (min-width:@screen-md-min) { // used only in index and guide html 
+  .container-bg-md {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+  }
+  .container-bg-md-middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .container-personal {
+    height: 250px;
+  }
+  .container-visualize {
+    height: 280px;
+  }
+  .container-simple {
+    height: 140px;
+  }
+  .container-enroll {
+    height:110px;
+  }
+  
+}
+
+.hero-title {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.container-user {
+  padding: 15px;
+}
+
+.user-panel {
+  background-color: white;
+  // color: white;
+  padding: 20px;
+  height: 250px;
+  overflow: hidden;
+  @media (max-width:(@screen-md-min - 1)){
+    height: 350px;
+  }
+  @media (max-width:(@screen-sm-min - 1)){
+    height: auto;
+  }
+
+}
+
+
+.user .user-info {
+  display:inline-block;
+}
+.user img {
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+}
+.user .user-press {
+  height: 25px;
+}
+.user-info {
+  font-weight: bold;
+  height: 50px;
+}
+// 
+// Press
+// --------------------------------------------------
+.press-feature {
+  height:250px;
+  
+  > .row,
+  > .row > .col-xs-1 {
+    height: 100%; // vertical centering
+    cursor: pointer;
+  }
+
+  .glyphicon {
+    color: @primary-orange;
+    font-size: 2em;
+  }
+}
+@media (min-width: @screen-sm){
+  .press-feature {
+    height:350px;
+  }
+}
+.press-container {
+  background-color: @gray-lighter;
+  padding: 30px;
+  .press-img {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid @gray-lighter;
+  }
+  .press-download {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid @gray-lighter;
+    border-top: 0px;
+  }
+}
+
+
+// 
+// About
+// --------------------------------------------------
+.member-photo img {
+  width: 110px;
+  height: 110px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+// 
+// Research
+// --------------------------------------------------
+
+#quotes-panel { // copied from app.less
+  position: absolute;
+  width: 315px;
+  top:0px;
+  @media (max-width: @screen-sm-max) 
+  {
+    width: auto;
+    position: static;
+  }
+}
+#quotes-panel.stuck {
+  position: fixed;
+  top: 55px;
+}
+#quotes-panel.bottom {
+  position: absolute;
+}
+#quotes-banner { // from recommend.less
+  background-color: rgba(0, 0, 0, .8);
+}
+
+#quotes-banner.stuck {
+  width: auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top:55px;
+  opacity: 1;
+  z-index: 1000;
+}
+#quotes-banner-placeholder {
+  display:block;
+  // height: 77px; 
+}
+
+.chart {
+  margin: 0 auto 0 auto;
+}
+#barChart {
+  height:280px; // height auto screws things up
+  width: 400px;
+  @media (max-width:650px) { 
+    width: 300px;
+    height: 280px;
+  }
+}
+
+#map_election {
+  min-height: 300px;
+  height: auto;
+  width: 600px;
+  @media (max-width:650px) { 
+    min-width: 300px;
+    width: auto;
+    height: 150px;
+  }
+}
+#pieChart {
+  min-height:300px;
+  height: auto;
+  width: 600px;
+  
+  @media (max-width:650px) { 
+    min-width: 300px;
+    width: auto;
+    height: 150px;
+  }
+}
+
+// 
+// Blog
+// --------------------------------------------------
+.panel {
+  border:1px solid @gray-light;
+}
+.blog-img {
+  max-height: 250px;
+}

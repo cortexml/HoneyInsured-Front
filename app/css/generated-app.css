@@ -1,0 +1,183 @@
+@import "../../bower_components/SpinKit/css/spinners/4-wandering-cubes.css";
+.panel {
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0px;
+}
+.panel-body {
+  padding: 20px;
+}
+.card-red .card-cover {
+  background-color: #ee6352;
+}
+.card-blue .card-cover {
+  background-color: #3594d5;
+}
+.card-green .card-cover {
+  background-color: #37b499;
+}
+.card-white .card-cover {
+  background-color: white;
+}
+.card-orange .card-cover {
+  background-color: #f79824;
+}
+.card-title {
+  font-weight: 600;
+}
+.card-text {
+  font-size: 16px;
+}
+.cards-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-link .card-cover,
+.card-link .card-cover:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.cards-container .card-link {
+  display: block;
+  position: relative;
+}
+.sk-wandering-cubes .sk-cube {
+  background-color: #f79824;
+}
+.doctor,
+.network.cards-container .network-name,
+.selectize-control .selectize-dropdown .text,
+.icon-info {
+  font-size: 14px;
+}
+.normal-text {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.1;
+}
+.detail {
+  font-size: 14px;
+}
+.text-black {
+  color: #555555;
+}
+.gray {
+  color: #777777;
+}
+.app-header-top {
+  margin-top: 100px;
+}
+@media (max-width: 767px) {
+  .app-header-top {
+    margin-top: 75px;
+  }
+}
+.bg .title {
+  font-weight: 600;
+  font-size: 40px;
+}
+@media (max-width: 767px) {
+  .bg .title {
+    font-size: 30px;
+  }
+}
+.bg .subtitle {
+  font-size: 19px;
+  font-weight: 300;
+}
+.bg-info-1:before,
+.bg-info-3:before {
+  background: rgba(62, 42, 63, 0.7);
+}
+.bg-info-1 {
+  background-image: url(../img/info-1.png);
+  background-position: center bottom;
+  color: white;
+}
+.bg-info-2:before {
+  background: rgba(23, 75, 110, 0.7);
+}
+.bg-info-2 {
+  background-image: url(../img/info-2.png);
+  background-position: center bottom;
+  color: white;
+}
+.breadcrumb {
+  font-size: 14px;
+  border-radius: 0px;
+  background-color: #555555;
+}
+.breadcrumb > li + li:before {
+  content: "\2192";
+  color: #777777;
+}
+.breadcrumb > li > a {
+  color: #777777;
+  padding: 10px 14px;
+}
+.breadcrumb > li > a:hover,
+.breadcrumb > li > a:focus {
+  color: white;
+  text-decoration: none;
+}
+.breadcrumb > li.active a {
+  color: white;
+}
+.breadcrumb > li.disabled a {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+@media (max-width: 767px) {
+  .breadcrumb {
+    margin-bottom: 0px;
+  }
+}
+.label {
+  display: inline-block;
+  padding: .4em .6em .3em;
+  border-radius: 0px;
+  cursor: pointer;
+  font-weight: 300;
+}
+.label-cheap {
+  background-color: #80B1D3;
+}
+.label-protection {
+  background-color: #C872BD;
+}
+.label-recommended {
+  background-color: #FDB462;
+}
+.label-handpicked {
+  background-color: #78D8C9;
+}
+.label-hsa {
+  background-color: #fb8072;
+}
+#enroll-panel .panel,
+#static-panel .panel {
+  border: 1px solid #cccccc;
+}
+#enroll-panel {
+  position: absolute;
+  width: 315px;
+  top: 0px;
+}
+@media (max-width: 991px) {
+  #enroll-panel {
+    width: auto;
+    position: static;
+  }
+}
+#enroll-panel.stuck {
+  position: fixed;
+  top: 55px;
+}
+#enroll-panel.bottom {
+  position: absolute;
+}

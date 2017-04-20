@@ -1,0 +1,292 @@
+
+
+@import (css) "../../bower_components/owl.carousel/dist/assets/owl.carousel.min.css";
+
+@import "partials/uninsured.less";
+@import "partials/cards.less";
+
+@gray:                       #555;
+@gray-light:                 #777;
+@gray-lighter:               #eee;
+@gray-lightest:           #fafafa;
+@text-color:                @gray;
+
+@primary-green:           #37B499;
+@brand-primary:           #3594D5; 
+@primary-orange:          #f79824;
+@primary-red:             #EE6352;
+@primary-yellow:          #ffc803;
+
+@btn-default-border:         #ccc;
+@grid-gutter-width: 30px;
+
+
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+@screen-xs-max:   (@screen-sm-min - 1);
+
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+@screen-sm-max:    (@screen-md-min - 1);
+
+table { table-layout: fixed; } // for modal
+tbody {height: 100%; overflow-y: auto;}
+
+.modal-header .close:before{
+  content: normal;
+}
+@media (max-width: @screen-xs-max) {
+  .modal-content .normal-text {
+    font-size: 12px; // modal plan names smaller since plan names can get insanely large
+  }
+}
+
+.gray-bg {
+  background-color: @gray-lightest;
+}
+
+// 
+// Elements
+// --------------------------------------------------
+
+.recommend-content,
+.modal-content,
+.recommend-content .bootstrap-select > .btn {
+  font-weight: 300; 
+  font-size: 16px;
+}
+.recommend-content .btn-lg {
+  padding-left: 0px;
+  padding-right: 0px; // words go outside of button on small screen otherwise
+}
+
+.recommend-content.clean{
+  input[type='text'] ,
+  input[type='number'],
+  .bootstrap-select.btn-group > button {
+    height: 23px;// line-height
+  }
+  .bootstrap-select > .btn {
+    padding: 0px 14px 0px 3px;
+    font-weight: normal; // bold buttons
+  }
+}
+
+// 
+// Explanation
+// --------------------------------------------------
+// ul.explanation li {
+  // margin-bottom: 10px;
+// }
+
+// #explanation .square-orange {
+  // background-color:@primary-orange;
+// }
+// 
+// #explanation .square {
+  // color: white;
+  // padding: 20px 0 20px 0;
+  // height: 100px;
+//   
+  // .square-num {
+    // font-size: 30px;
+    // font-weight: 600;
+  // }
+//   
+  // .square-subtext {
+    // font-weight: 400;
+  // }
+// }
+
+// 
+// Choices
+// --------------------------------------------------
+
+.summary-card { // card for plan summaries
+  border: 1px solid @btn-default-border;
+  cursor: pointer;
+  
+  &:hover .hover-underline  {
+    text-decoration: underline;
+  }
+}
+
+
+.network.cards-container .circle{
+  background:rgba(119, 119, 119, .7);// @gray-light
+}
+.network.cards-container .card-link.card-recommended{
+  font-weight: bold;
+  .circle {
+    background: rgba(247,152,36, .8); //recommended orange
+  }
+}
+.network.cards-container .network-name {
+  height: 60px; // allow for 3 rows
+}
+.network.cards-container .card-link {
+  margin-top:15px;
+  margin-bottom: 15px; // room when you squish the page smaller
+}
+.container-circle {
+  height: 70px;
+  position: relative;
+}
+
+
+//
+// Recommend Scaffold
+// --------------------------------------
+
+.text-center-info { // text-center on small screen
+  @media (max-width: @screen-sm-max) {
+    text-align: center;
+  }
+}
+#enroll-banner {
+  background-color: @gray;
+  width: auto;
+  position: fixed;
+  top: 55px;
+  left: 0;
+  right: 0;
+  
+  z-index: -1; 
+  opacity: 0;
+}
+
+#enroll-banner.stuck {
+  z-index: 1000;
+  opacity: 1;
+}
+
+//
+// Benefits
+// --------------------------------------
+
+.doctor { // borrowing from selectize js
+  background: @primary-orange;
+  color: white;
+  border-radius: 3px;
+  margin: 0 3px 3px 0;
+  padding: 1px 3px;
+  vertical-align: baseline;
+  display:inline-block;
+}
+
+
+.tab-content {
+  min-height: 180px; // 3 rows of 2 line each = (44 + 15)*4 + 15
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  border-color: transparent; // nav-tabs when open "other" no blue outline
+}
+
+//
+// Recommended Plan Page 
+// https://www.thinkwithgoogle.com/category-trends/travel-hotel-q3-2015.html
+// --------------------------------------
+
+.square.btn-group .btn{
+  border-radius: 0px;
+}
+.circle {
+  content: "";
+  
+  position: absolute;
+  border-radius:50%; 
+  margin:auto;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+}
+
+
+//
+// Similar Plans
+// --------------------------------------
+// .owl-item.active:nth-of-type(1) { // give cursor pointer to area around owl arrows
+  // > .col-xs-12{
+    // padding-left:0px;
+  // }
+// }
+// // correspondes to js breakpoints
+// @media (max-width: 599px) {
+  // .owl-item.active:nth-of-type(1) {
+      // > .col-xs-12  {
+      // padding-right:0px;
+    // }
+  // }
+// }
+// @media (max-width: @screen-sm-max) {
+  // .owl-item.active:nth-of-type(2) {
+      // > .col-xs-12  {
+      // padding-right:0px;
+    // }
+  // }
+// }
+// .owl-item.active:nth-of-type(3) {
+    // > .col-xs-12  {
+    // padding-right:0px;
+  // }
+// }
+
+
+.owl-arrow{
+  position:absolute;
+  height:100%;
+  // width:20px;
+  width:50px;
+  font-size: 3em;
+  cursor:pointer;
+  color:@text-color;
+  justify-content:center;
+  z-index:2; // to be able to click on arrow
+}
+.owl-arrow-left{
+  &:extend(.owl-arrow);
+  // left:0;
+  left:-10px;
+  // margin-left:5px;
+}
+.owl-arrow-right{
+  &:extend(.owl-arrow);
+  // right:0;
+  right:-10px;
+  // margin-right:5px;
+}
+.owl-arrow-hide{
+  display: none;
+}
+
+.owl-carousel .owl-item{
+  -webkit-backface-visibility:visible; // fixes chrome owl disappearing text
+  backface-visibility: visible; 
+  display:inline-block;
+}
+.owl-carousel {
+  padding-right: 12.5px;
+  padding-left: 12.5px;
+}
+
+.gray-bg {
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: @gray-lightest;
+  }
+}
+#suggestions .tab-content {
+  min-height: 435px;
+}
+//
+// All Plans
+// --------------------------------------
+.legend .circle {
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+

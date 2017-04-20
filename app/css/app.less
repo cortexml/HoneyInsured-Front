@@ -1,0 +1,191 @@
+@import (css) "../../bower_components/SpinKit/css/spinners/4-wandering-cubes.css";
+@import "partials/cards.less";
+@gray:                       #555;
+@gray-light:                 #777;
+
+@gray-lighter:           #eee; // #eee
+@brand-primary:           #3594D5; 
+@text-color:                @gray;
+@primary-green:           #37B499;
+@primary-orange:          #f79824;
+@catastrophic:            #FB8072;
+@btn-default-border:         #ccc;
+
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+@screen-sm-max:    (@screen-md-min - 1);
+
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+@screen-xs-max:              (@screen-sm-min - 1);
+.sk-wandering-cubes .sk-cube {
+  background-color: @primary-orange;
+}
+
+
+// font-sizing
+.doctor,
+.network.cards-container .network-name, // network name
+.selectize-control .selectize-dropdown .text , // text in doctor select
+.icon-info //question mark 
+{
+  font-size: 14px;
+}
+
+.normal-text {
+  &:extend(h1);
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+.detail
+{
+  font-size: 14px;
+}
+
+.text-black {
+  color: @text-color;
+}
+
+.gray {
+  color: @gray-light;
+}
+
+.app-header-top { // be smaller on smaller screen
+  margin-top:100px; 
+  @media (max-width: @screen-xs-max) 
+  {
+    margin-top:75px; 
+  }
+}
+// 
+// Backgound
+// --------------------------------------------------
+.bg .title {
+  font-weight: 600;
+  font-size: 40px;
+  @media (max-width: @screen-xs-max) 
+  {
+    font-size:30px;
+  }
+}
+.bg .subtitle { // same as info content
+  font-size: 19px; // h3
+  font-weight: 300;
+}
+
+.bg-info-1:before,
+.bg-info-3:before {
+  // background:rgba(10, 83, 8, 0.6); // green
+  background: rgba(62, 42, 63,0.7);
+}
+.bg-info-1 {
+  background-image: url(../img/info-1.png);
+  background-position: center bottom;
+  color: white;
+}
+
+.bg-info-2:before {
+  // background: rgba(55,180,153,0.7);
+  background:rgba(23, 75, 110, 0.7);
+}
+
+.bg-info-2 {
+  background-image: url(../img/info-2.png);
+  background-position: center bottom;
+  color: white;
+}
+
+
+.breadcrumb {
+  font-size:14px;
+  
+  border-radius: 0px;
+  background-color: @gray;
+  
+  > li + li:before {
+    content: "\2192"; // right arrow
+    color: @gray-light;
+  }
+  > li > a { 
+    color: @gray-light;
+    padding: 10px 14px;
+  }
+  > li > a:hover,
+  > li > a:focus,
+  {
+    color: white;
+    text-decoration: none;
+  }
+  
+  > li.active a {
+    color: white;
+  }
+  
+  // from bootstrap buttons.less
+  > li.disabled a {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+  }
+
+
+   @media (max-width: @screen-xs-max) 
+  {
+    margin-bottom:0px;
+  }
+}
+
+// 
+// Plan
+// --------------------------------------------------
+
+.label {
+  display:inline-block;
+  padding: .4em .6em .3em;
+  border-radius: 0px;
+  cursor:pointer;
+  font-weight: 300;
+}
+
+.label-cheap {
+  background-color:#80B1D3; //blue
+}
+.label-protection {
+  background-color:#C872BD; //purple
+}
+.label-recommended {
+  background-color:#FDB462; //orange
+}
+.label-handpicked {
+  background-color:#78D8C9; //green
+}
+.label-hsa {
+  background-color: @catastrophic;
+}
+//
+// Recommended Plan Page 
+// https://www.thinkwithgoogle.com/category-trends/travel-hotel-q3-2015.html
+// --------------------------------------
+#enroll-panel .panel,
+#static-panel .panel {
+  border: 1px solid @btn-default-border;
+}
+#enroll-panel {
+  position: absolute;
+  width: 315px;
+  top:0px;
+  @media (max-width: @screen-sm-max) 
+  {
+    width: auto;
+    position: static;
+  }
+}
+#enroll-panel.stuck {
+  position: fixed;
+  top: 55px;
+}
+#enroll-panel.bottom {
+  position: absolute;
+}
+

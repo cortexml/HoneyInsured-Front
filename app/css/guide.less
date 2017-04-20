@@ -1,0 +1,89 @@
+@import "partials/uninsured.less";
+
+@btn-default-border:             #ccc;
+@brand-primary:               #3594D5;
+@primary-orange:              #f79824;
+@primary-green:               #239b6d;
+@gray-lighter:                   #eee;
+
+@handleSize:                     32px;
+@gray:                       #555;
+
+@text-color:                @gray;
+@grid-gutter-width: 30px;
+
+// .guide-content,
+.bootstrap-select > .btn {
+  font-weight: 300;
+  font-size: 19px;
+}
+h3 .bootstrap-select > .btn {
+  font-size: 24px;
+}
+.clean h3 .bootstrap-select.btn-group > button {
+  height: 34px; // line-height 1.4*24
+}
+h3 {
+  line-height: 1.42857143 !important; // select vertical alignment
+}
+.clean{
+  input[type='text'] ,
+  input[type='number'],
+  .bootstrap-select.btn-group > button {
+    height: 23px;// line-height
+  }
+  .bootstrap-select > .btn {
+    padding: 0px 14px 0px 3px;
+    font-weight: normal; // bold buttons
+  }
+}
+
+input[type='text'],
+input[type='number'] {
+  display: inline-block;
+}
+
+.vanilla.cards-container{
+  .card-link {
+    margin-top:15px;
+    margin-bottom: 15px; // room when you squish the page smaller
+  }
+  img {
+    max-height: 100px;
+  }
+} 
+
+.info.cards-container .card-link{
+   height: 120px;
+}
+
+.info.risk.cards-container {
+  .card-link {
+    height: 100px;
+  }
+  img {
+    height: 70px;
+  }
+  
+  .card-link:hover .card-cover:after,
+  .card-link.active .card-cover:after { opacity:.25;}
+}
+ul.cards-container {
+  @media (max-width:@screen-xs-max) { 
+    .col-sm-4 + .col-sm-4 {
+      margin-top: 25px; // more space on small screen
+    }
+  }
+}
+  
+#subsidiesChart {
+  min-height:300px;
+  height: auto;
+  width: 100%; 
+  
+  @media (max-width:768px) { 
+    min-width: 300px;
+    width: auto;
+    height: 150px;
+  }
+}

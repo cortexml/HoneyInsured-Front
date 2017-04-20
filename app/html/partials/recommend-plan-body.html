@@ -1,0 +1,21 @@
+<div class = "row row-top-15" ng-class = "{'detail':@@size != 'lg' }">
+  <div class = "col-xs-12">
+    Metal<span class = "pull-right">{{@@var.metal|titleCase}} <span class = "icon-info" help-tooltip="CONSTANTS.DEFINITIONS[@@var.metal]"></span></span>
+  </div>
+  <div class = "col-xs-12">
+    Network<span class = "pull-right">{{@@var.type}} <span class = "icon-info" help-tooltip="CONSTANTS.DEFINITIONS[@@var.type]"></span></span>
+  </div>
+  <div class = "col-xs-12">
+    Deductible<span class = "pull-right">${{@@var.medDed}} <span class = "icon-info" help-tooltip="'Generally '+(profile.numPerson==1?'you':'your family')+' need to spend $' + @@var.medDed + ' on healthcare first before the insurance company begins to pay.'"></span></span>
+  </div>
+  <div class = "col-xs-12">
+    Max Out Of Pocket<span class = "pull-right">${{@@var.moop}} <span class = "icon-info" help-tooltip="'The most '+(profile.numPerson==1?'you':'your family')+' ever have to pay for healthcare besides insurance costs is $'+@@var.moop +'. After that, the insurance company covers everything else.'"></span></span>
+  </div>
+  <div class = "col-xs-12" ng-if = "doctors.total > 0">
+    Your Doctors<span class = "pull-right">{{@@var.providers.length}}<span ng-if ="@@var.providers.length != 1"> Doctors</span><span ng-if ="@@var.providers.length == 1"> Doctor</span></span>
+  </div>
+  <div class = "col-xs-12" ng-if = "@@var.hsa">
+    HSA-eligible<span class = "pull-right">Yes <span class = "icon-info" help-tooltip="'This plan can be combined with a Health Savings Account to fund your medical expenses.'"></span></span>
+  </div>
+</div>
+

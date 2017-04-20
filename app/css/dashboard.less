@@ -1,0 +1,82 @@
+@import "../../bower_components/css-progress-wizard-master/less/progress-wizard";
+
+@btn-default-border:             #ccc;
+@brand-primary:               #3594D5;
+@primary-orange:              #f79824;
+@primary-green:               #239b6d;
+@gray-lighter:                   #eee;
+
+@handleSize:                     32px;
+@gray:                       #555;
+
+@text-color:                @gray;
+
+.dashboard-content {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+button {
+  height: 39px;
+}
+
+.person + .person { // copied from enroll.less
+  border-top: 1px solid @btn-default-border;
+  padding-top: 15px;
+} 
+.person {
+  padding-bottom: 15px;
+}
+// 
+// Progress Bar
+// -------------------------------------------------- 
+@inactive: @btn-default-border;
+@active: @brand-primary;
+@hover: @brand-primary;
+
+@bubble-size: 15px;
+@bubble-line-thickness: 3px; // rzslider size
+@border-thickness: 0px;
+@darken-amount: 0%; // get rid of hover
+
+.progress-indicator {
+  text-transform: none;
+  font-size:100%;
+  
+  > li .bubble,
+  > li .bubble::after{
+    // margin-bottom: 0.5*@handleSize;
+    margin-bottom: 5px; // space between bars and word
+    // display:none;
+  }
+  > li > .detail {
+    display: block;
+  }
+  > li.progress-orange 
+  {
+    .progress-variant(@primary-orange);
+  }
+  > li.progress-blue {
+    .progress-variant(@brand-primary);
+  }
+  > li.progress-green {
+    .progress-variant(@primary-green);
+  }
+  >li.disabled {
+    .progress-variant(@gray-lighter);
+    
+  }
+  
+}
+
+.progress-variant(@color){
+  color:@color;
+  .bubble {
+    background-color: @color;
+    color:@color;
+    &:before,
+    &:after {
+      background-color: @color;
+    }
+  }
+}

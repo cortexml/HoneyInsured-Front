@@ -1,0 +1,372 @@
+@@include('layouts/guide_header.html',{"title":"The Ultimate Guide to Affordable Health Insurance", "description": "Know how to navigate your health insurance options. Get the perfect health insurance fit by knowing your doctors, health costs, network and risk preferences."}) 
+
+
+<h2>The Ultimate Guide to Affordable Health Insurance</h2>
+<hr class = "row-top-15 row-bottom-15">
+<h5>October 31, 2015 | Grace Gee & Eugene Wang</h5>
+<!-- <img class = "img-responsive row-top-15" src = "img/choices.png"> -->
+<p class = "row-top-15 row-bottom-5">
+  Open enrollment starts November 1, 2015 and insurance can be quite daunting for the first-timer. That's why we built an interactive guide to explain what is health insurance, how much does it cost, where to get lower prices, and what to look out for while shopping. Know how to navigate your health insurance options. Get the perfect health insurance fit by knowing your doctors, health costs, network and risk preferences. Let's get started!
+</p>
+<!--*****************************************************************
+* What's good
+*****************************************************************-->
+
+<h3 class = "row-top-25 row-bottom-15 text-bold">What's so good about insurance?</h3>
+
+<ul class = "row row-top-25 vanilla cards-container list-unstyled text-center">
+  <li class = "col-sm-4">
+    <div class = "card-link">
+      <div class = "row container-bg" style = "width: calc(100% + 30px);">
+        <div class = "col-xs-12 container-bg-middle" >
+          <img class = "row-bottom-15" src="img/guide-preventive.png">
+          <p class = "card-title">
+            Free Preventive Care
+          </p>
+          <p class = "card-text" >
+            Vaccines, Counseling, Check-ups, Screenings for Cholesterol, Blood Pressure, Depression, etc.
+          </p>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class = "col-sm-4">
+    <div class = "card-link">
+      <div class = "row container-bg" style = "width: calc(100% + 30px);">
+        <div class = "col-xs-12 container-bg-middle" >
+          <img class = "row-bottom-15" src="img/guide-medical.png">
+          <p class = "card-title">
+            Lower Medical Expenses
+          </p>
+          <p class = "card-text" >
+            Pay less on Prescription Drugs, Lab Tests, Maternity and Newborn Care, Office Visits, etc.
+          </p>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class = "col-sm-4">
+    <div class = "card-link">
+      <div class = "row container-bg" style = "width: calc(100% + 30px);">
+        <div class = "col-xs-12 container-bg-middle" >
+          <img class = "row-bottom-15" src="img/guide-urgent.png">
+          <p class = "card-title">
+            Accident Protection
+          </p>
+          <p class = "card-text" >
+            All plans must cover Ambulatory and Emergency Services, Hospitalizations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </li>
+
+</ul>
+
+<!--*****************************************************************
+* Scenarios
+*****************************************************************-->
+<hr class = "row-top-25 row-bottom-25">
+<h3 class = "row-bottom-15 text-bold">If accidents happen, you won't break the bank.</h3>
+
+<p class = "row-top-15">
+  Toggle the scenarios to find how much you'd pay if you had a typical silver insurance plan.
+</p>
+
+<div class = "row row-top-15" ng-controller="uninsuredSubappCtrl">
+  <div class = "col-xs-6">
+    <div class = "btn-group scenarios row-top-25" role="group">
+      <button type="button" class="btn" role = "button" ng-class="{active:selectedScenario==name}" ng-repeat="(name,scenario) in CONSTANTS.SCENARIOS" ng-click="$parent.selectedScenario=name">
+        <i class = "icon-{{scenario.icon}} h4"></i> &nbsp;{{name}}
+      </button>
+    </div>
+  </div>
+
+  <div class = "col-xs-6 accident-container">
+    <div class = "container-bg-middle" >
+      <div counter name = "You Pay" style = "margin: auto; max-width: 140px; max-height:140px;"></div>
+      <p class = "row-top-15 text-center detail" >
+        You pay <span class = "text-bold red">{{CONSTANTS.SCENARIOS[selectedScenario].totalcost|currency:undefined:0}}</span> for <span ng-if = "selectedScenario != 'Cancer'">a </span>{{selectedScenario|lowercase}} without insurance.
+      </p>
+    </div>
+  </div>
+</div>
+<!--*****************************************************************
+* Cost
+*****************************************************************-->
+<hr class = "row-top-25 row-bottom-25">
+<h3 class = "row-bottom-15 text-bold">How much does health insurance cost?</h3>
+<p class = "row-top-15">
+  Your insurance costs and options are based on your age and where you live. Don't worry, HoneyInsured shows you the same options and same rates as Healthcare.gov.
+</p>
+<p class = "row-top-15">
+  Below are some estimates based on second lowest-cost silver plans in TX.
+</p>
+
+<ul class = "row row-top-15 vanilla cards-container list-unstyled text-center">
+  <li class = "col-sm-4">
+    <div class = "card-link">
+      <div class = "row container-bg" style = "width: calc(100% + 30px);">
+        <div class = "col-xs-12 container-bg-middle" >
+          <img class = "row-bottom-15" src="img/guide-single.png">
+
+          <p class = "card-title">
+            $245/mo
+          </p>
+          <p class = "card-text">
+            Individual
+          </p>
+          <p class = "card-text">
+            Single 35 year-old
+          </p>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class = "col-sm-4">
+    <div class = "card-link">
+      <div class = "row container-bg" style = "width: calc(100% + 30px);">
+        <div class = "col-xs-12 container-bg-middle" >
+          <img class = "row-bottom-15" src="img/guide-couple.png">
+
+          <p class = "card-title">
+            $490/mo
+          </p>
+          <p class = "card-text">
+            Couple
+          </p>
+          <p class = "card-text">
+            Two 35 year-olds
+          </p>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class = "col-sm-4">
+    <div class = "card-link">
+      <div class = "row container-bg" style = "width: calc(100% + 30px);">
+        <div class = "col-xs-12 container-bg-middle" >
+          <img class = "row-bottom-15" src="img/guide-family.png">
+          <p class = "card-title">
+            $744/mo
+          </p>
+          <p class = "card-text">
+            Family
+          </p>
+          <p class = "card-text">
+            Two 35 year-olds and Two Children
+          </p>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<!--*****************************************************************
+* Subsidies
+*****************************************************************-->
+<hr class = "row-top-25 row-bottom-25">
+<h3 class = "row-bottom-15 text-bold">But most people qualify for lower prices.</h3>
+<p class = "row-top-15">
+  With the Affordable Care Act, individuals making less than <span class = "orange text-bold">$47K</span> per year or a family of 4 making less than <span class = "orange text-bold">$97K</span> per year will be eligible for tax subsidies to lower their insurance costs.
+</p>
+
+<div class = "row">
+  <div class = "col-sm-6 col-xs-12">
+    <div id="subsidiesChart" class = "chart"></div>
+  </div>
+  <div class = "col-sm-6 col-xs-12 container-bg-sm container-subsidies">
+    <div class = "container-bg-middle">
+      <p>
+        Last year, as many as <span class = "orange text-bold">87%</span> of people who signed up for Obamacare plans qualify for an average savings of <span class = "orange text-bold">$263 per month</span> for their insurance.
+      </p>
+      <p class = "row-top-15">
+        In fact for 2016, most people can find a health insurance plan for <span class = "orange text-bold">$75</span> or less per month.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!--*****************************************************************
+* How
+*****************************************************************-->
+<hr class = "row-top-25 row-bottom-25">
+<h3 class = "row-bottom-15 text-bold">How should I choose an insurance plan?</h3>
+<p>
+  1. <b>Decide how much risk you want to take.</b> In general, the more you pay for insurance, the less you have to pay when accidents happen. Select a box to see what to look out for.
+</p>
+<div class = "row row-top-15" ng-init = "risk=1">
+  <div class = "col-sm-6 col-xs-12">
+    <ul class = "row row-top-25 info risk cards-container list-unstyled" >
+
+      <li class = "col-xs-12 row-bottom-15">
+        <div class = "panel card-link card-red" ng-class="{active:risk==1}" ng-click="risk=1">
+          <div class = "card-cover"></div>
+          <div class = "row text-center text-white container-bg" style = "width: calc(100% + 30px);">
+            <div class = "col-xs-3 container-bg-middle">
+              <img  src="img/risk-1.png">
+            </div>
+            <div class = "col-xs-9 container-bg-middle">
+              <p class = "card-title">
+                Cheap but Risky
+              </p>
+              <p class = "card-text" >
+                Pay the least for insurance but the most when accidents happen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class = "col-xs-12 row-bottom-15">
+        <div class = "panel card-link card-blue" ng-class="{active:risk==2}" ng-click="risk=2">
+          <div class = "card-cover"></div>
+          <div class = "row text-center text-white container-bg" style = "width: calc(100% + 30px);">
+            <div class = "col-xs-3 container-bg-middle">
+              <img  src="img/risk-2.png">
+            </div>
+            <div class = "col-xs-9 container-bg-middle">
+              <p class = "card-title">
+                In-Between
+              </p>
+              <p class = "card-text" >
+                Pay more for insurance but less when accidents happen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class = "col-xs-12 row-bottom-15">
+        <div class = "panel card-link card-green" ng-class="{active:risk==3}" ng-click="risk = 3">
+          <div class = "card-cover"></div>
+          <div class = "row text-center text-white container-bg" style = "width: calc(100% + 30px);">
+            <div class = "col-xs-3 container-bg-middle">
+              <img  src="img/risk-3.png">
+            </div>
+            <div class = "col-xs-9 container-bg-middle">
+              <p class = "card-title">
+                Safe But Expensive
+              </p>
+              <p class = "card-text" >
+                Pay the most for insurance but the least when accidents happen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  <div class = "col-sm-6 col-xs-12 container-bg-sm container-risk">
+    <div class = "container-bg-middle">
+      <div class = "fadeAnimate-in" ng-if="risk==1">
+        <h3 class = "row-bottom-15 red text-bold">Cheap But Risky</h3>
+        <p>
+          This type of insurance is cheap but has the <b>highest</b> Max Out of Pocket of around <b>$6850</b> for individuals and <b>$13700</b> for families. Max Out of Pocket is the maximum you ever have to pay for healthcare in a year before the insurance company covers everything else.
+        </p>
+      </div>
+      <div class = "fadeAnimate-in" ng-if="risk==2">
+        <h3 class = "row-bottom-15 blue text-bold">In-Between</h3>
+        <p>
+          This type of insurance is average cost and has an <b>average</b> Max Out of Pocket of around <b>$5000</b> for individuals and <b>$10000</b> for families. Max Out of Pocket is the maximum you ever have to pay for healthcare in a year before the insurance company covers everything else.
+        </p>
+      </div>
+      <div class = "fadeAnimate-in" ng-if="risk==3">
+        <h3 class = "row-bottom-15 green text-bold">Safe But Expensive</h3>
+        <p>
+          This type of insurance is expensive but has the <b>lowest</b> Max Out of Pocket of around <b>$1500</b> for individuals and <b>$3000</b> for families. Max Out of Pocket is the maximum you ever have to pay for healthcare in a year before the insurance company covers everything else.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class = "row-top-50">
+  2. <b>Decide how much doctor choice and flexibility you want.</b> In general, the more you pay for insurance, the more doctor choices you have. Select a box to see what to look out for.
+</p>
+
+<div class = "row row-top-15" ng-init = "doctor=1">
+  <div class = "col-sm-6 col-xs-12">
+    <ul class = "row row-top-25 info risk cards-container list-unstyled" >
+
+      <li class = "col-xs-12 row-bottom-15">
+        <div class = "panel card-link card-orange" ng-class="{active:doctor==1}" ng-click="doctor=1">
+          <div class = "card-cover"></div>
+          <div class = "row text-center text-white container-bg" style = "width: calc(100% + 30px);">
+            <div class = "col-xs-3 container-bg-middle">
+              <img  src="img/network-1.png">
+            </div>
+            <div class = "col-xs-9 container-bg-middle">
+              <p class = "card-title">
+                Fewer Doctor Choices
+              </p>
+              <p class = "card-text" >
+                Pay less for insurance and get fewer doctor choices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class = "col-xs-12 row-bottom-15">
+        <div class = "panel card-link card-blue" ng-class="{active:doctor==2}" ng-click="doctor=2">
+          <div class = "card-cover"></div>
+          <div class = "row text-center text-white container-bg" style = "width: calc(100% + 30px);">
+            <div class = "col-xs-3 container-bg-middle">
+              <img  src="img/network-2.png">
+            </div>
+            <div class = "col-xs-9 container-bg-middle">
+              <p class = "card-title">
+                More Doctor Choices
+              </p>
+              <p class = "card-text" >
+                Pay more for insurance and get more doctor choices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class = "col-sm-6 col-xs-12 container-bg-sm container-doctor">
+    <div class = "container-bg-middle">
+      <div class = "fadeAnimate-in" ng-if="doctor==1">
+        <h3 class = "row-bottom-15 orange text-bold">Fewer Doctor Choices</h3>
+        <p>
+          These are generally <b>HMO</b> plans, which means you will have a fixed primary care doctor and need referrals to see specialists in the plan's doctor network. The insurance doesn't cover medical expenses out-of-network.
+        </p>
+      </div>
+      <div class = "fadeAnimate-in" ng-if="doctor==2">
+        <h3 class = "row-bottom-15 blue text-bold">More Doctor Choices</h3>
+        <p>
+          These are generally <b>PPO</b> plans, which means you don't need referrals to see specialists and can even see doctors out of the plan's doctor network.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class = "row-top-50">
+  3. <b>Estimate how much you need to spend on medical expenses.</b> If you need to spend a lot on healthcare, you should pay more for a better quality insurance. Insurance companies cannot deny you or charge you more if you have pre-existing medical conditions.
+</p>
+<p class = "row-top-15">
+  Slide to how much you expect to spend on medical expenses in 2016 to find out what plans you should be looking at.
+</p>
+<div class = "row row-top-15 text-center">
+  <div class = "col-md-10 col-md-offset-1">
+    <h2 class = "red "><span ng-class="{'green':healthcostSlider.model<60}">${{healthcost.total | number:0}}<span class = "h4">/year</span></span></h2>
+    <rzslider style = "text-align: left;" class = "healthcost row-bottom-25" rz-slider-floor="healthcostSlider.floor" rz-slider-ceil="healthcostSlider.ceil" rz-slider-model="healthcostSlider.model"></rzslider>
+  </div>
+</div>
+<div class = "row row-top-15">
+  <span ng-if="healthcost.total<=500">Based on your spending levels, you should be looking at a <b>Catastrophic</b> plan. On average, catastrophic plans pay less than 60% of your medical bills.</span>
+  <span ng-if="healthcost.total>500&&healthcost.total<=1100">Based on your spending levels, you should be looking at a <b>Bronze</b> plan. On average, bronze plans pay 60% of your medical bills.</span>
+  <span ng-if="healthcost.total>1100&&healthcost.total<=3000">Based on your spending levels, you should be looking at a <b>Silver</b> plan. On average, silver plans pay 70% of your medical bills.</span>
+  <span ng-if="healthcost.total>3000&&healthcost.total<=6000">Based on your spending levels, you should be looking at a <b>Gold</b> plan. On average, gold plans pay 80% of your medical bills.</span>
+  <span ng-if="healthcost.total>6000">Based on your spending levels, you should be looking at a <b>Platinum</b> plan. On average, platinum plans pay 90% of your medical bills.</span>
+</div>
+
+@@include('layouts/blog_footer.html')

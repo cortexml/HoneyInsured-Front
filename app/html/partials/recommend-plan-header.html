@@ -1,0 +1,19 @@
+<h2 ng-class="{'green':@@var.originalPremium, 'h3': @@size != 'lg'}" >${{@@var.premium | number:0}}<span class = "h4" ng-class="{'normal-text':@@size == 'lg'}">/mo</span></h2>
+<div class = "row" ng-if="@@var.originalPremium">
+  <div class = "col-xs-12">
+    <span class = "detail">was <span style = "text-decoration: line-through;">${{@@var.originalPremium | number:0}}</span> <span class = "icon-info" help-tooltip="'Congrats, you qualify for tax subsidies! That means you get reduced prices on insurance. If you click Enroll, we can also help you apply for these subsidies in 5 min.'" direction = "right"></span></span>
+  </div>
+</div>
+
+<div class = "row row-top-5" ng-if = "@@var.tags">
+  <div class = "col-xs-12">
+    <span class="label label-default" ng-class="'label-'+tag" ng-repeat="tag in @@var.tags" help-tooltip="CONSTANTS.DEFINITIONS[tag]" direction="top">{{tag|titleCase}}</span>
+  </div>
+</div>
+
+<div class = "row-top-15 normal-text" >
+  {{@@var.name}}
+</div>
+<div class = "row-top-5">
+  {{@@var.issuer}}
+</div>

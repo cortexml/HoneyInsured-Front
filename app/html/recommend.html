@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>HoneyInsured</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <!-- TODC Bootstrap core CSS -->
+    <link href="css/generated-theme.css" rel="stylesheet">
+    <link href="css/generated-app.css" rel="stylesheet">
+    <link href="css/generated-recommend.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CDN -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/underscore/underscore-min.js"></script>
+    <script src="../bower_components/d3/d3.min.js"></script>
+    <script src="../bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBhADlvZ2qVn5mF9Q0oj9_JRNEPONz1yc"></script>
+
+    <!-- Group 1 -->
+    @@include('layouts/js-import.html')
+
+    <!-- Custom -->
+    <script src="../bower_components/animatescroll/animatescroll.noeasing.js"></script>
+    <script src="../bower_components/jquery.inputmask/dist/jquery.inputmask.bundle.min.js"></script>
+    <script src="../bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../bower_components/CUSTOM-sticky/sticky.js"></script>
+    <script src="../bower_components/dimple/dist/dimple.latest.min.js"></script>
+    <script src="../bower_components/angularjs-slider/dist/rzslider.min.js"></script>
+    <script src="../bower_components/progressbar.js/dist/progressbar.min.js"></script>
+    <script src="js/plans-lib/doctor-subapp.js"></script>
+    <script src="js/plans-lib/healthcost-subapp.js"></script>
+    <script src="js/plans-lib/uninsured-subapp.js"></script>
+    <script src="js/plans-lib/visualization-subapp.js"></script>
+    <script src="js/recommend.js"></script>
+
+  </head>
+
+  <body ng-app="recommendApp" ng-controller="recommendCtrl" ng-cloak>
+
+    <div class="modal fade" id="email" tabindex="-1" role="dialog" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h3 class="modal-title" id='modal-title'></h3>
+          </div>
+          <div class="modal-body">
+
+            <p class = "row-bottom-15" id='modal-content'></p>
+
+            <form class="form-horizontal" id="modal-form">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Send To</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="modal-input" placeholder="Email Address">
+                </div>
+              </div>
+
+              <div class="form-group" id="modal-link">
+                <label class="col-sm-2 control-label">Link</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" disabled="disabled" value="{{shortUrl}}">
+                </div>
+              </div>
+
+              <div class="form-group" id="modal-submit">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default btn-primary">
+                    Send Email
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="compare" tabindex="-1" role="dialog" >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h3 class="modal-title">Plan Comparison</h3>
+          </div>
+          <div class="modal-body">
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <td class = "col-xs-4"></td>
+                  <td class = "col-xs-4">Current Plan</td>
+                  <td class = "col-xs-4">Other Plan</td>
+                </tr>
+                <tr>
+                  <td style = "border-top: 0px;"></td>
+                  <td>@@include('partials/recommend-plan-header.html',{"var":"planSelected", "size": "''"})</td>
+                  <td>@@include('partials/recommend-plan-header.html',{"var":"planCompare", "size": "''"})</td>
+                </tr>
+                <tr>
+                  <td style = "border-top: 0px;"></td>
+                  <td style = "border-top: 0px;">@@include('partials/recommend-modal-footer.html',{"var":"planSelected"})</td>
+                  <td style = "border-top: 0px;">@@include('partials/recommend-modal-footer.html',{"var":"planCompare"})</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Metal</td><td>{{planSelected.metal|titleCase}}</td><td>{{planCompare.metal|titleCase}}</td>
+                </tr>
+                <tr>
+                  <td>Network</td><td>{{planSelected.type}}</td><td>{{planCompare.type}}</td>
+                </tr>
+                <tr>
+                  <td>Deductible</td><td>${{planSelected.medDed}}</td><td>${{planCompare.medDed}}</td>
+                </tr>
+                <tr>
+                  <td>Max Out Of Pocket</td><td>${{planSelected.moop}}</td><td>${{planCompare.moop}}</td>
+                </tr>
+                <tr ng-if = "doctors.total > 0">
+                  <td>Your Doctors</td><td>{{planSelected.providers.length}} <span ng-if ="planSelected.providers.length != 1"> Doctors</span><span ng-if ="planSelected.providers.length == 1"> Doctor</span></td><td>{{planCompare.providers.length}} <span ng-if ="planCompare.providers.length != 1"> Doctors</span><span ng-if ="planCompare.providers.length == 1"> Doctor</span></td>
+                </tr>
+
+                <tr ng-repeat = "benefit in CONSTANTS.COMBINED_BENEFITS['Basic']">
+                  <td>{{benefit[0]}}</td>
+                  <!-- {{$parent.getBenefitText(planSelected.benefit[benefit[1]])}} -->
+                  <td>{{planSelected.benefit[benefit[1]]}} <span ng-if="planSelected.benefit[benefit[1]].indexOf('/')>-1" class = "icon-info" help-tooltip="getBenefitText(planSelected.benefit[benefit[1]],benefit[0])"></span></td>
+                  <td>{{planCompare.benefit[benefit[1]]}} <span ng-if="planCompare.benefit[benefit[1]].indexOf('/')>-1" class = "icon-info" help-tooltip="getBenefitText(planCompare.benefit[benefit[1]],benefit[0])"> </span></td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @@include('layouts/header-app.html')
+
+    <div class = "hidden-lg hidden-md" id = "enroll-banner">
+      <div class = "container-large" style = "padding-top: 15px; padding-bottom: 15px;">
+        <!-- same height as button -->
+        <div class = "row">
+          <div class = "col-xs-7 text-white" style = "margin-top:3px;">
+            <h4 class = "ellipsis">{{planSelected.name}}</h4>
+            <h4 class = "ellipsis">${{planSelected.premium | number:0}}<span class = "h6">/mo</span></h4>
+          </div>
+
+          <div class = "col-xs-5 text-right">
+            <!-- button padding needs fixing on small screen -->
+            <button class="btn btn-primary btn-lg hidden-xs" ng-click="enroll(planSelected,$event)">
+              Enroll Online
+            </button>
+            <button class="btn btn-primary btn-lg hidden-sm hidden-md hidden-lg" ng-click="enroll(planSelected,$event)">
+              Enroll
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class = "bg bg-info-3 text-center" style = "background-image: url(../img/info-3.png);background-position: center bottom;color: white; ">
+      <div class = "container-large">
+        <div class = "row app-header-top">
+          <div class = "col-xs-10 col-xs-offset-1">
+            <h3 class = "row-bottom-25 title"><span ng-if="planSelected.tags.indexOf('recommended')>-1">Our Recommendation</span><span ng-if="(plans && !planSelected.tags)||(plans && planSelected.tags.indexOf('recommended')==-1)">Other Plans</span><span ng-if="!plans">Handpicking Plans For You</span></h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <ul class="breadcrumb text-center">
+      <li>
+        <a href="" ng-click="goBack('#info')">You & Preferences</a>
+      </li>
+      <li>
+        <a href="" ng-click="goBack('#doctor')">Doctors & Healthcost</a>
+      </li>
+      <li class="active">
+        <a href = "">Recommendations</a>
+      </li>
+      <li class="disabled">
+        <a href = "">Enroll</a>
+      </li>
+    </ul>
+
+    <!--*****************************************************************
+    * Loading
+    *****************************************************************-->
+
+    <section class = "recommend-content container-large text-center" ng-if="!planSelected">
+      <div class = "row-top-25">
+        <div class="sk-wandering-cubes">
+          <div class="sk-cube sk-cube1"></div>
+          <div class="sk-cube sk-cube2"></div>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "col-sm-12 col-md-8 col-md-offset-2 h3" style = "font-weight:300;">
+          <p class = "row-top-25" ng-if="!plans">
+            My mama always said, ‘Insurance was like a box of chocolates. You never know what you’re gonna get.’
+          </p>
+          <p class = "row-top-25">
+            {{error}}
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!--*****************************************************************
+    * Recommended
+    *****************************************************************-->
+    <div main-content class="fadeAnimate-in" ng-if="planSelected">
+      <section class = "recommend-content container-large">
+        <div class="row">
+
+          <div class = "col-md-8">
+            <h3 class = "text-center-info row-top-25">{{planSelected.name}}</h3>
+
+            <ul explanation class = "explanation row-top-15"></ul>
+
+          </div>
+
+          <div class = "col-md-4">
+            <div id = "enroll-panel">
+              <div class = "panel">
+                <div class = "panel-body">
+                  @@include('partials/recommend-plan-header.html',{"var":"planSelected", "size": "'lg'"})
+                  @@include('partials/recommend-plan-body.html',{"var":"planSelected", "size": "'lg'"})
+                  <div class = "row row-top-15">
+                    <div class = "col-xs-12">
+                      <button class="btn btn-block btn-primary btn-lg" ng-click="enroll(planSelected,$event)">
+                        Enroll Online
+                      </button>
+                    </div>
+                    <div class = "col-xs-12 row-top-5 text-center" style = "font-size: 14px;">
+                      You'll be redirected to a partner site.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="sectionBenefits" class = "recommend-content container-large">
+        <div class="row">
+          <div class = "col-md-8">
+
+            <!--*****************************************************************
+            * Benefits
+            *****************************************************************-->
+            <hr class = "row-top-15 row-bottom-25">
+            <h3 class = "text-center-info">Benefits</h3>
+
+            <ul class="nav nav-tabs row-top-15" ng-init ="selectedBenefit='Basic'">
+              <li ng-class="{active:selectedBenefit==name}" ng-repeat="(name,val) in CONSTANTS.BENEFITS" ng-click="$parent.selectedBenefit=name">
+                <a href="">{{name}}</a>
+              </li>
+
+              <li class="dropdown" ng-class="{active:CONSTANTS.BENEFITS_OTHER[selectedBenefit]}">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="" style="cursor:pointer"> Other <span class="caret"></span> </a>
+                <ul class="dropdown-menu">
+                  <li ng-class="{active:selectedBenefit==name}" ng-repeat="(name,val) in CONSTANTS.BENEFITS_OTHER" ng-click="$parent.selectedBenefit=name">
+                    <a href="" ng-if="hasBenefit(name)" >{{name}}</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content row-bottom-15 fadeAnimate-in" ng-if="selectedBenefit==name" ng-repeat="(name,val) in CONSTANTS.COMBINED_BENEFITS">
+              <div class="tab-panel">
+
+                <div class = "row row-top-15" ng-if="planSelected.benefit[benefit[1]]" ng-init="isDrugDed = (CONSTANTS.DRUGS.indexOf(benefit[0])>-1 && +planSelected.drugDed)" ng-repeat = "benefit in val">
+                  <div class = "col-xs-4">
+                    {{benefit[0]}}
+                  </div>
+
+                  <div class = "col-xs-8" ng-init="bs=planSelected.benefit[benefit[1]]">
+                    <span ng-if="bs.indexOf('/')==-1">You will pay <span class = "text-bold orange">{{parseBenefit(bs)}}</span>.</span>
+                    <span ng-if="bs.indexOf('/')>-1">Before spending ${{isDrugDed?planSelected.drugDed:planSelected.medDed}} on {{isDrugDed?'drugs':'healthcare'}}, you will pay <span class = "text-bold orange">{{parseBenefit(bs.split('/')[0])}}</span>. Afterwards, you pay <span class = "text-bold orange">{{parseBenefit(bs.split('/')[1])}}</span>.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class = "detail">
+              Note: For more details, you can view <a target="_blank" href='{{planSelected.sobUrl}}'> Summary of Benefits</a>, <a target="_blank" href='{{planSelected.doctorUrl}}'> Doctor List</a> and also the <a target="_blank" href='{{planSelected.drugUrl}}'>Drug List</a> to make sure your medications are covered.
+            </p>
+
+            <!--*****************************************************************
+            * Accident
+            *****************************************************************-->
+            <div id="sectionAccident" ng-controller="uninsuredSubappCtrl">
+              <hr class = "row-top-15 row-bottom-25">
+              <h3 class = "text-center-info">Accident Coverage</h3>
+              <p class = "row-top-15">
+                It's important that you're insured against accidents. Click the different scenarios to find how much you'll pay under this plan.
+              </p>
+
+              <div class = "row row-top-25 row-bottom-50">
+                <div class = "col-xs-6 ">
+                  <div class = "btn-group scenarios" role="group">
+                    <button type="button" class="btn" role = "button" ng-class="{active:selectedScenario==name}" ng-repeat="(name,scenario) in planSelected.scenarios" ng-click="toggleScenario(name)">
+                      <i class = "icon-{{scenario.icon}} h4"></i> &nbsp;{{name}}
+                    </button>
+                  </div>
+                </div>
+
+                <div class = "col-xs-6 accident-container">
+                  <div class = "container-bg-middle">
+                    <div counter name = "You Pay" style = "margin: auto; max-width: 140px; max-height:140px;"></div>
+                    <p class = "row-top-15 text-center detail">
+                      Without insurance, you would pay {{planSelected.penalty|currency:undefined:0}} in tax penalty and <span class = "text-bold red">{{planSelected.scenarios[selectedScenario].totalcost|currency:undefined:0}}</span> for <span ng-if = "selectedScenario != 'Cancer'">a </span>{{selectedScenario|lowercase}}. <span class = "icon-info" help-tooltip="'Unless you qualify for a hardship exemption, you need to pay a tax penalty if you go uninsured.'"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--*****************************************************************
+            * Network
+            *****************************************************************-->
+            <div id="sectionNetwork" ng-show="showNetworkSize">
+              <hr class = "row-top-15 row-bottom-25">
+              <h3 class = "text-center-info">Doctor Network</h3>
+              <p class = "row-top-15">
+                We looked at all {{networks.length}} networks available in {{urlParams.profile.state}} and this plan ranks <span class = "text-bold orange">{{networkIndex}}</span> in network size with {{planSelected.network>1000?planSelected.network/1000:planSelected.network|number:0}}<span ng-if="planSelected.network>1000">K</span> doctors.
+              </p>
+
+              <ul network class = "row row-top-25 network cards-container list-unstyled text-center"></ul>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+      <section id="suggestions" class = "gray-bg recommend-content" >
+        <div class = "container-large">
+          <!-- No HSA -->
+          <h3 class = "row-top-25 row-bottom-15 text-center-info" ng-if="hsaPlans.length==0 && (!doctors.total || !doctors.covered)">Handpicked Plans</h3>
+          <!-- HSA Plans Available -->
+          <h3 class = "row-top-25 row-bottom-15 text-center-info" ng-if="hsaPlans.length>0 || (doctors.total && doctors.covered)">Other Plans</h3>
+          <ul class="nav nav-tabs row-top-15" ng-show="hsaPlans.length>0">
+            <li ng-class="{active:$parent.selectedSimilar=='Handpicked'}" ng-click="$parent.selectedSimilar='Handpicked'">
+              <a href="">Handpicked</a>
+            </li>
+            <li ng-class="{active:$parent.selectedSimilar=='HSA'}" ng-show="hsaPlans.length>0" ng-click="$parent.selectedSimilar='HSA'">
+              <a href="">HSA-eligible</a>
+            </li>
+            <li ng-class="{active:$parent.selectedSimilar=='Doctors'}" ng-show="doctors.total && doctors.covered" ng-click="$parent.selectedSimilar='Doctors'">
+              <a href="">Doctors</a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-panel">
+              <div class="row-top-15 fadeAnimate-in" ng-if="$parent.selectedSimilar=='Handpicked'">
+                <p class = "row-bottom-15">
+                  We thought the following <span class = "label label-handpicked">Handpicked</span> plans may interest you, they are good deals and suit your preferences. Some are also <span class = "label label-cheap">Cheap</span> based on their insurance costs and your expected healthcare spendings under them, or offer good <span class = "label label-protection">Protection</span> in case of accidents.
+                </p>
+                <!-- Carousel with plans -->
+                <div class = "row row-bottom-50">
+                  <div class = "col-xs-12" style="min-height:450px">
+                    <div class="owl-arrow-left center-vertical">
+                      <span class="glyphicon glyphicon-menu-left"></span>
+                    </div>
+                    <div class="owl-arrow-right center-vertical">
+                      <span class="glyphicon glyphicon-menu-right"></span>
+                    </div>
+                    <div class="row cards-container owl-carousel owl-theme">
+                      <div class = "col-xs-12" ng-if="plan.id!=planSelected.id" ng-repeat = "plan in similarPlans" >
+
+                        <div class = "panel summary-card card-link" >
+                          <div class = "panel-body text-black" style = "position: relative;">
+                            @@include('partials/recommend-plan-header.html',{"var":"plan", "size": "''"})
+                            @@include('partials/recommend-plan-body.html',{"var":"plan", "size": "''"})
+                            @@include('partials/recommend-plan-footer.html',{"var":"plan"})
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- HSA -->
+              <div class="row-top-15 fadeAnimate-in" ng-if="$parent.selectedSimilar=='HSA'">
+                <p class = "row-bottom-15">
+                  These plans can be combined with a Health Savings Account (HSA) to fund your medical expenses. Contributions to a HSA account is tax deductible. But for most people, the tax benefit of a HSA is negligible.
+                </p>
+                <!-- Carousel with plans -->
+                <div class = "row row-bottom-50">
+                  <div class = "col-xs-12" style="min-height:450px">
+                    <div class="owl-arrow-left center-vertical">
+                      <span class="glyphicon glyphicon-menu-left"></span>
+                    </div>
+                    <div class="owl-arrow-right center-vertical">
+                      <span class="glyphicon glyphicon-menu-right"></span>
+                    </div>
+                    <div class="row cards-container owl-carousel owl-theme">
+                      <div class = "col-xs-12" ng-if="plan.id!=planSelected.id" ng-repeat = "plan in hsaPlans" >
+
+                        <div class = "panel summary-card card-link" >
+                          <div class = "panel-body text-black" style = "position: relative;">
+                            @@include('partials/recommend-plan-header.html',{"var":"plan", "size": "''"})
+                            @@include('partials/recommend-plan-body.html',{"var":"plan", "size": "''"})
+                            @@include('partials/recommend-plan-footer.html',{"var":"plan"})
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Doctors -->
+              <div class="row-top-15 fadeAnimate-in" ng-if="$parent.selectedSimilar=='Doctors'">
+                <p class = "row-bottom-15">
+                  These are plans that cover at least one of your doctors.
+                </p>
+                <!-- Carousel with plans -->
+                <div class = "row row-bottom-50">
+                  <div class = "col-xs-12" style="min-height:450px">
+                    <div class="owl-arrow-left center-vertical">
+                      <span class="glyphicon glyphicon-menu-left"></span>
+                    </div>
+                    <div class="owl-arrow-right center-vertical">
+                      <span class="glyphicon glyphicon-menu-right"></span>
+                    </div>
+                    <div class="row cards-container owl-carousel owl-theme">
+                      <div class = "col-xs-12" ng-if="plan.id!=planSelected.id" ng-repeat = "plan in doctorPlans" >
+
+                        <div class = "panel summary-card card-link" >
+                          <div class = "panel-body text-black" style = "position: relative;">
+                            @@include('partials/recommend-plan-header.html',{"var":"plan", "size": "''"})
+                            @@include('partials/recommend-plan-body.html',{"var":"plan", "size": "''"})
+                            @@include('partials/recommend-plan-footer.html',{"var":"plan"})
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="allPlans" class = "recommend-content clean container-large" ng-controller="visualizationSubappCtrl">
+        <hr>
+        <h3 class = "row-top-25 row-bottom-15 text-center-info">All Plans</h3>
+        <p class = "row-top-15">
+          It's important to choose a plan that has low monthly premium and also low deductible and max out of pocket. That's why we plot all {{plans.length}} plans on a 2d graph! Look out for good deals on the lower left and click on a point to view details.
+        </p>
+        <p class = "row-top-15" >
+          You are coloring plans by
+          <select selectpicker ng-init = "chartColorBy='metal'" ng-model = "chartColorBy">
+            <option value="metal">Metal Level</option><option value="issuer">Carriers</option><option value="type">Network</option>
+          </select>
+        </p>
+        <p class = "row-top-5" >
+          You are comparing plans by
+          <select selectpicker ng-init = "chartAxisBy='medDed'" ng-model = "chartAxisBy">
+            <option value="medDed">Deductible</option><option value="moop">Max Out Of Pocket</option>
+          </select>
+        </p>
+        <div class = "row row-top-25 row-bottom-50">
+          <div class = "col-md-8 col-sm-7">
+            <div class = "row row-bottom-15 legend detail">
+              <div class = "col-xs-2" style = "width: auto;" ng-repeat="(key,val) in legend">
+                <div class = "circle" style = "background-color: {{val}};"></div>
+                <div style = "margin-left:25px;">
+                  {{key | titleCase}}
+                </div>
+              </div>
+            </div>
+            <div chart chart-x="chartAxisBy" chart-color="chartColorBy" style="width: 100%; height: 300px;margin:auto;"></div>
+          </div>
+          <div class = "col-md-4 col-sm-5">
+            <div class = "container-bg" style = "height: 300px;" ng-if="!visualizeSelected">
+              <div class = "container-bg-middle" >
+                <div class="sk-wandering-cubes">
+                  <div class="sk-cube sk-cube1"></div>
+                  <div class="sk-cube sk-cube2"></div>
+                </div>
+              </div>
+            </div>
+            <div class = "panel summary-card card-link fadeAnimate-in" ng-if="visualizeSelected">
+              <div class = "panel-body text-black" style = "position: relative;">
+
+                @@include('partials/recommend-plan-header.html',{"var":"visualizeSelected", "size": "''"})
+                @@include('partials/recommend-plan-body.html',{"var":"visualizeSelected", "size": "''"})
+                @@include('partials/recommend-plan-footer.html',{"var":"visualizeSelected"})
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      @@include('layouts/footer.html')
+    </div>
+
+  </body>
+  <script>
+    $('.navbar.navbar-default').removeClass('navbar-fixed-top navbar-small').addClass('navbar-top');
+    new Waypoint({
+      element : $('.breadcrumb')[0],
+      handler : function(direction) {
+        if (direction == 'down') {
+          $('.navbar').removeClass('navbar-top');
+          $('.navbar').addClass('navbar-scroll navbar-fixed-top');
+
+        } else {
+          $('.navbar').removeClass('navbar-scroll navbar-fixed-top');
+          $('.navbar').addClass('navbar-top');
+        }
+      },
+      offset : -5 // size of hero
+    });
+  </script>
+</html>

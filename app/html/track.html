@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find sweetest health insurance deals at lowest prices. Compare, visualize and enrollment in Obamacare health plans in 5 min.">
+    <meta name="Keywords" content="honeyinsured, honeyinsured insurance, health insurance, health care, medical insurance, health insurance quotes, affordable health insurance, obamacare" />
+    <link rel="shortcut icon" href="./img/favicon.png">
+    <title>HoneyInsured | Sweet, Affordable Health Insurance</title>
+
+    <!-- CSS -->
+    <link href="css/generated-theme.css" rel="stylesheet">
+    <!-- <link href="css/generated-static.css" rel="stylesheet"> -->
+    <link href="css/generated-app.css" rel="stylesheet">
+    <link href="css/generated-form.css" rel="stylesheet">
+    <link href="css/generated-dashboard.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CDN -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/underscore/underscore-min.js"></script>
+
+    <!-- Group 1 -->
+    @@include('layouts/js-import.html')
+
+    <!-- Custom -->
+    <script src="js/track.js"></script>
+
+  </head>
+
+  <body ng-app="trackApp" ng-controller="trackCtrl">
+
+    @@include('layouts/header-static.html')
+
+    <!----------------------------------------
+    Page Content
+    --------------------------------------->
+
+    <section style = "padding-top:55px;">
+      <div class = "container-large dashboard-content" >
+        <div class = "row row-top-25 row-bottom-100">
+          <div class = "col-md-6 col-md-offset-3 col-sm-12" ng-if="templateIndex<2">
+
+            <div class="fadeAnimate-in" ng-if="templateIndex==0">
+              <h3 class="title row-bottom-15">Track My Application</h3>
+              <hr>
+
+              <p class = 'row-top-15'>
+                We sent a confirmation number to the email address you provided. Please enter your email and confirmation number below.
+              </p>
+              <div class="row row-top-15">
+                <div class="col-xs-12">
+                  <input type="text" ng-model="login.email" class="form-control" placeholder="Email" required/>
+                </div>
+              </div>
+              <div class="row row-top-15">
+                <div class="col-xs-12">
+                  <input type="text" ng-model="login.id" class="form-control" placeholder="Confirmation Number" required/>
+                </div>
+              </div>
+
+              <h5 class = "row-top-15"><a href = "" ng-click="gotoForget()">Can't find Confirmation Number?</a></h5>
+
+              <h5 class = "row-top-15 red" ng-if="error">Email or Confirmation Number not found</h5>
+              <div class = "row row-top-15">
+                <div class = "col-xs-12">
+                  <button type="button" class="btn btn-primary btn-lg will-load" ng-class="{loading:loading}" ng-click="gotoApp()">
+                    Get My Application
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="fadeAnimate-in" ng-if="templateIndex==1">
+              <h3 class="title row-bottom-15">Resend Confirmation Number</h3>
+              <hr>
+
+              <p class = 'row-top-15'>
+                Please enter your email below and we'll resend the confirmation number to you.
+              </p>
+              <div class="row row-top-15">
+                <div class="col-xs-12">
+                  <input type="text" ng-model="login.email" class="form-control" placeholder="Email" required/>
+                </div>
+              </div>
+              <h5 class = "row-top-15 red" ng-if="errorForget">Please enter a valid email.</h5>
+              <div class = "row row-top-15">
+                <div class = "col-xs-12">
+                  <button type="button" class="btn btn-primary btn-lg" ng-click="resendConfirmation()">
+                    Resend Confirmation Number
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="fadeAnimate-in" ng-if="templateIndex==-1">
+              <h3 class="title row-bottom-15">Thanks!</h3>
+              <hr>
+
+              <p class = 'row-top-15'>
+                Please check your email for the confirmation number.
+              </p>
+              <div class = "row row-top-15">
+                <div class = "col-xs-12">
+                  <button type="button" class="btn btn-primary btn-lg" ng-click="gotoLogin()">
+                    Enter Confirmation Number
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fadeAnimate-in" ng-if="templateIndex==2">
+
+            <div class = "col-md-8">
+
+              <ul class="progress-indicator">
+                <li class="progress-green">
+                  <span class="bubble"></span>
+                  Application Submitted
+                </li>
+                <li class = "progress-green" ng-class="{disabled:status.current=='Submitted'}">
+                  <span class="bubble"></span>
+                  Enrolled
+                </li>
+                <li class = "progress-green" ng-class="{disabled:!_.every(_.pluck(status.docs,'hasUploaded'))}" ng-if="status.docs">
+                  <span class="bubble"></span>
+                  Documents
+                </li>
+              </ul>
+              <h3 class = "row-top-25 row-bottom-15">Status Update</h3>
+
+              <p class = "row-bottom-15" ng-repeat="str in status.update.split('<br>')">
+                {{str}}
+              </p>
+
+              <!--*****************************************************************
+              * Main Applicant
+              *****************************************************************-->
+              <form name="form2" class="fadeAnimate-in row-bottom-25" ng-if="status.docs">
+                <div class = "form person fadeAnimate" ng-repeat="doc in status.docs">
+                  <div class = "row" >
+                    <div class="col-xs-11 center-vertical row-label">
+                      <b>{{doc.name}}</b>
+                    </div>
+                    <!-- <button type="button" class="close" ng-click="removeMember($index,$event)" ng-if="$index>0"></button> -->
+                  </div>
+
+                  <!--*****************************************************************
+                  * Documents
+                  *****************************************************************-->
+                  <div class = "row fadeAnimate-in" ng-if="doc.hasUploaded">
+                    <div class = "col-xs-12">
+                      <div class="alert alert-success" role="alert">
+                        <span class ="glyphicon glyphicon-ok green"></span> &nbsp; <b>Congrats!</b> Your <b>{{doc.title}}</b> has been sucessfully uploaded.
+                        <br>
+                        <a href="" ng-click="doc.hasUploaded=false">Re-upload Document</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class = "row fadeAnimate-in" ng-if="!doc.hasUploaded">
+                    <div class = "col-xs-6">
+                      <select track-selectpicker ng-model="doc.selected" required>
+                        <option value='' disabled>{{doc.title}}</option>                        
+                        <option value="{{k}}" ng-repeat="(k,v) in CONSTANTS.OPTIONS[doc.title]">{{v}}</option>
+                      </select>
+                    </div>
+                    <div class = "col-xs-6 fadeAnimate-in" ng-show="doc.selected!=''">
+                      <!-- <button type="button" class="btn btn-orange btn-block">
+                      </button> -->
+                      <span>Choose a file less than 3mb: </span>
+                      <input file-upload="doc" type="file" type="button">
+                      <!-- accept="image/*,.pdf,.docx,.doc"  -->
+                      </input>
+                      <span>Submitting...</span>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+
+              @@include('partials/submitted-social.html')
+            </div>
+
+            <div class ="col-md-4">
+              <div id = "static-panel">
+                <div class = "panel">
+                  <div class = "panel-body">
+                    @@include('partials/recommend-plan-header.html',{"var":"status.plan", "size": "'lg'"})
+                    @@include('partials/recommend-plan-body.html',{"var":"status.plan", "size": "'lg'"})
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    @@include('layouts/footer.html')
+
+  </body>
+</html>

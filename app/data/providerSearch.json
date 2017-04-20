@@ -1,0 +1,170 @@
+{"providers":[
+ {
+    "name":"THE DENTIST PLACE",
+    "specialty":"Dentist",
+    "address1":"27001 U.S. HIGHWAY 19 N",
+    "address2":"CLEARWATER, FL 33761",
+    "phone":7277990650,
+    "id":1689712127
+ }
+, {
+    "name":"MCILWAIN FAMILY DENTISTRY",
+    "specialty":"Dentist",
+    "address1":"4710 N HABANA AVE",
+    "address2":"TAMPA, FL 33614",
+    "phone":8138798097,
+    "id":1386648863
+ }
+, {
+    "name":"KIDZONE DENTISTRY PA",
+    "specialty":"Dentist",
+    "address1":"13039 SUMMERFIELD SQUARE DR",
+    "address2":"RIVERVIEW, FL 33578",
+    "phone":8136773047,
+    "id":1134531270
+ }
+, {
+    "name":"FLORIDA SPECIAL CARE DENTISTRY",
+    "specialty":"Clinic/Center",
+    "address1":"1 DAVIS BLVD",
+    "address2":"TAMPA, FL 33606",
+    "phone":8132512314,
+    "id":1720192909
+ }
+, {
+    "name":"MCD DENTISTRY, PA",
+    "specialty":"Dentist",
+    "address1":"12813 N DALE MABRY HWY",
+    "address2":"TAMPA, FL 33618",
+    "phone":8139621400,
+    "id":1831446376
+ }
+, {
+    "name":"FAMILY & COSMETIC DENTISTRY OF TEMPLE TERRACE, PA",
+    "specialty":"Dentist",
+    "address1":"224 E. BULLARD PKWY",
+    "address2":"TEMPLE TERRACE, FL 33617",
+    "phone":8139882729,
+    "id":1982847943
+ }
+, {
+    "name":"KOOL KIDZ PEDIATRIC DENTISTRY",
+    "specialty":"Dentist",
+    "address1":"7712 W WATERS AVE",
+    "address2":"TAMPA, FL 33615",
+    "phone":8138854501,
+    "id":1225327430
+ }
+, {
+    "name":"ARNOLD & PARKINSON DENTISTRY PL",
+    "specialty":"Dentist",
+    "address1":"10465 GIBSONTON DR",
+    "address2":"RIVERVIEW, FL 33578",
+    "phone":8136777800,
+    "id":1982863023
+ }
+, {
+    "name":"AMBERLY FAMILY DENTISTRY",
+    "specialty":"Dentist",
+    "address1":"14463 UNIVERSITY COVE PL",
+    "address2":"TAMPA, FL 33613",
+    "phone":8139103333,
+    "id":1740313030
+ }
+, {
+    "name":"PEDIATRIC DENTISTRY OF BRANDON PA",
+    "specialty":"Dentist",
+    "address1":"517 CORNER DR",
+    "address2":"BRANDON, FL 33511",
+    "phone":7873987143,
+    "id":1467894980
+ }
+, {
+    "name":"MONTICCIOLO FAMILY AND SEDATION DENTISTRY, PA",
+    "specialty":"Clinic/Center",
+    "address1":"8327 W HILLSBOROUGH AVE",
+    "address2":"TAMPA, FL 33615",
+    "phone":8138853345,
+    "id":1245501410
+ }
+, {
+    "name":"MANGROVE BAY DENTISTRY P.A.",
+    "specialty":"Dentist",
+    "address1":"13998 W HILLSBOROUGH AVE",
+    "address2":"TAMPA, FL 33635",
+    "phone":8138919898,
+    "id":1013162965
+ }
+, {
+    "name":"BRANDON COSMETIC AND FAMILY DENTISTRY",
+    "specialty":"Dentist",
+    "address1":"1127 PROFESSIONAL PARK DR",
+    "address2":"BRANDON, FL 33511",
+    "phone":8136624853,
+    "id":1154751451
+ }
+, {
+    "name":"YOUNG SMILES PEDIATRIC DENTISTRY & SPA P.A",
+    "specialty":"Dentist",
+    "address1":"13131 KINGS LAKE DR",
+    "address2":"GIBSONTON, FL 33534",
+    "phone":8138299075,
+    "id":1225468242
+ }
+, {
+    "name":"RIVER HILLS DENTISTRY, P.A",
+    "specialty":"Dentist",
+    "address1":"4337 LYNX PAW TRL",
+    "address2":"VALRICO, FL 33596",
+    "phone":8136544223,
+    "id":1245256791
+ }
+, {
+    "name":"PEDIATRIC DENTISTRY OF NEW TAMPA",
+    "specialty":"Dentist",
+    "address1":"5326 PRIMROSE LAKE CIR",
+    "address2":"TAMPA, FL 33647",
+    "phone":8133740388,
+    "id":1891128773
+ }
+, {
+    "name":"PERIODONTICS & IMPLANT DENTISTRY OF ST. PETERSBURG",
+    "specialty":"Dentist",
+    "address1":"8487 4TH ST N",
+    "address2":"ST PETERSBURG, FL 33702",
+    "phone":7275798487,
+    "id":1013017201
+ }
+, {
+    "name":"CARE DENTISTRY GROUP",
+    "specialty":"Clinic/Center",
+    "address1":"19007 BRUCE B DOWNS BLVD",
+    "address2":"TAMPA, FL 33647",
+    "phone":8132212273,
+    "id":1295916039
+ }
+, {
+    "name":"AESTHETIC DENTISTRY OF NEW TAMPA",
+    "specialty":"Dentist",
+    "address1":"8709 HUNTERS GREEN DR",
+    "address2":"TAMPA, FL 33647",
+    "phone":8139911088,
+    "id":1710099353
+ }
+, {
+    "name":"DR. DENISE MCCASKILL",
+    "specialty":"Dentist",
+    "address1":"3617 W SWANN AVE",
+    "address2":"TAMPA, FL 33609",
+    "phone":8138799299,
+    "id":1427249135
+ }
+, {
+    "name":"EXACT DENTISTRY, PA",
+    "specialty":"Dentist",
+    "address1":"4326 PARK BLVD",
+    "address2":"PINELLAS PARK, FL 33781",
+    "phone":7275413502,
+    "id":1275605222
+ }
+]}

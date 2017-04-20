@@ -1,0 +1,243 @@
+@import "../../bower_components/owl.carousel/dist/assets/owl.carousel.min.css";
+.btn-group.scenarios .btn {
+  font-weight: 300;
+  width: 50%;
+}
+.btn-group.scenarios .btn + .btn {
+  margin-left: 0px;
+}
+.btn-group.scenarios .btn {
+  border-radius: 0px;
+}
+.btn-group.scenarios .btn:hover {
+  background-color: #fcddb8;
+}
+.btn-group.scenarios .btn > i[class^='icon-'] {
+  color: #f79824;
+}
+@media (max-width: 767px) {
+  .btn-group.scenarios .btn {
+    width: 100%;
+  }
+}
+.btn-group.scenarios .btn.active {
+  background-color: #f79824;
+  color: white;
+}
+.btn-group.scenarios .btn.active > i[class^='icon-'] {
+  color: white;
+}
+@media (max-width: 767px) {
+  .accident-container {
+    display: table;
+    table-layout: fixed;
+    height: 288px;
+  }
+}
+.panel {
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0px;
+}
+.panel-body {
+  padding: 20px;
+}
+.card-red .card-cover {
+  background-color: #ee6352;
+}
+.card-blue .card-cover {
+  background-color: #3594d5;
+}
+.card-green .card-cover {
+  background-color: #37b499;
+}
+.card-white .card-cover {
+  background-color: white;
+}
+.card-orange .card-cover {
+  background-color: #f79824;
+}
+.card-title {
+  font-weight: 600;
+}
+.card-text {
+  font-size: 16px;
+}
+.cards-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-link .card-cover,
+.card-link .card-cover:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.cards-container .card-link {
+  display: block;
+  position: relative;
+}
+table {
+  table-layout: fixed;
+}
+tbody {
+  height: 100%;
+  overflow-y: auto;
+}
+.modal-header .close:before {
+  content: normal;
+}
+@media (max-width: 767px) {
+  .modal-content .normal-text {
+    font-size: 12px;
+  }
+}
+.gray-bg {
+  background-color: #fafafa;
+}
+.recommend-content,
+.modal-content,
+.recommend-content .bootstrap-select > .btn {
+  font-weight: 300;
+  font-size: 16px;
+}
+.recommend-content .btn-lg {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.recommend-content.clean input[type='text'],
+.recommend-content.clean input[type='number'],
+.recommend-content.clean .bootstrap-select.btn-group > button {
+  height: 23px;
+}
+.recommend-content.clean .bootstrap-select > .btn {
+  padding: 0px 14px 0px 3px;
+  font-weight: normal;
+}
+.summary-card {
+  border: 1px solid #cccccc;
+  cursor: pointer;
+}
+.summary-card:hover .hover-underline {
+  text-decoration: underline;
+}
+.network.cards-container .circle {
+  background: rgba(119, 119, 119, 0.7);
+}
+.network.cards-container .card-link.card-recommended {
+  font-weight: bold;
+}
+.network.cards-container .card-link.card-recommended .circle {
+  background: rgba(247, 152, 36, 0.8);
+}
+.network.cards-container .network-name {
+  height: 60px;
+}
+.network.cards-container .card-link {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.container-circle {
+  height: 70px;
+  position: relative;
+}
+@media (max-width: 991px) {
+  .text-center-info {
+    text-align: center;
+  }
+}
+#enroll-banner {
+  background-color: #555555;
+  width: auto;
+  position: fixed;
+  top: 55px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 0;
+}
+#enroll-banner.stuck {
+  z-index: 1000;
+  opacity: 1;
+}
+.doctor {
+  background: #f79824;
+  color: white;
+  border-radius: 3px;
+  margin: 0 3px 3px 0;
+  padding: 1px 3px;
+  vertical-align: baseline;
+  display: inline-block;
+}
+.tab-content {
+  min-height: 180px;
+}
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  border-color: transparent;
+}
+.square.btn-group .btn {
+  border-radius: 0px;
+}
+.circle {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.owl-arrow,
+.owl-arrow-left,
+.owl-arrow-right {
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  font-size: 3em;
+  cursor: pointer;
+  color: #555555;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  z-index: 2;
+}
+.owl-arrow-left {
+  left: -10px;
+}
+.owl-arrow-right {
+  right: -10px;
+}
+.owl-arrow-hide {
+  display: none;
+}
+.owl-carousel .owl-item {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  display: inline-block;
+}
+.owl-carousel {
+  padding-right: 12.5px;
+  padding-left: 12.5px;
+}
+.gray-bg .nav-tabs > li.active > a,
+.gray-bg .nav-tabs > li.active > a:hover,
+.gray-bg .nav-tabs > li.active > a:focus {
+  background-color: #fafafa;
+}
+#suggestions .tab-content {
+  min-height: 435px;
+}
+.legend .circle {
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  margin-left: 15px;
+  margin-right: 5px;
+}

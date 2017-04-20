@@ -1,0 +1,54 @@
+<div class="navbar navbar-default center-vertical navbar-small header" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <div class = "hidden-xs">
+        <a id="nav-index" class = "navbar-brand " href=""> </a>
+      </div>
+      <div class = "pull-right">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class = "hidden-sm hidden-md hidden-lg">
+          <a href="/"> Home</a>
+        </li>
+        <!-- <li ng-if = "planSelected" ng-click="scrollSuitable()">
+          <a href=""> Suitable Plans</a>
+        </li>
+        <li ng-if = "planSelected" ng-click="scrollAll()">
+          <a href=""> All Plans</a>
+        </li> -->
+        <!-- <li class = "button-scroll" ng-if = "planSelected">
+          <a href="">
+          <button class="btn btn-orange" ng-click="triggerSendPage()">
+            Email Me This Plan
+          </button></a>
+        </li>
+        <li class = "button-top" ng-if = "planSelected">
+          <a href="">
+          <button class="btn btn-naked-white btn-collapse-black" ng-click="triggerSendPage()">
+            Email Me This Plan
+          </button></a>
+        </li> -->
+        <!-- <li id = "phone"> -->
+        <!-- </li> -->
+        <!-- <li class = "item" id="chat"> -->
+          <!-- <a href=""> <span class="icon-chat" style = "font-size: 25px; vertical-align: middle;"></span> Chat Us</a> -->
+        <!-- </li> -->
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+  $('#nav-index').click(function() {
+    window.location = '/';
+  }); 
+</script>

@@ -1,0 +1,1084 @@
+
+@import "../../bower_components/bootstrap/less/bootstrap.less";
+@import "theme-lib/grid.less";
+@import (css) "../../bower_components/bootstrap-select/dist/css/bootstrap-select.css";
+@import (css) "../../bower_components/ajax-bootstrap-select/dist/css/ajax-bootstrap-select.css";
+// 
+// General
+// --------------------------------------------------
+@headings-font-weight:        400;
+@text-color:                @gray;
+@brand-primary:           #3594D5; 
+@primary-orange:          #f79824;
+@primary-red:             #EE6352;
+@primary-purple:          #9F6AA1;
+@primary-green:           #37B499;
+@primary-brown:           #A36C58;
+@catastrophic:            #FB8072;
+
+@row-info-height:            39px;
+
+@btn-font-weight:             400;
+@btn-default-color:         @gray;
+@btn-default-bg:    @gray-lighter;
+ 
+@navbar-height:              55px;
+
+@grid-gutter-width:25.0px;
+
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,500,600,700");
+@font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+
+
+#phone {
+  display:none;
+}
+// Text
+// --------------------------------------------------
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+body {
+  font-weight: 300;
+  font-size: 16px;
+}
+a {
+  cursor:pointer;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  line-height: 1.428;
+}
+// @media (max-width: @screen-sm-max)
+// { 
+  // h1,.h1{font-size:41px}
+  // h2,.h2{font-size:30px}
+  // h3,.h3{font-size:22px}
+  // h4,.h4{font-size:17px}
+  // h5,.h5{font-size:15px}
+  // // h6,.h6{font-size:13px}
+// }
+
+hr {
+  margin-top:0px;
+  margin-bottom:0px;
+  margin-left:-@grid-gutter-width/2;// same as row
+  margin-right:-@grid-gutter-width/2;
+}
+
+
+a{
+  color: @brand-primary;
+  &:hover, 
+  &:focus {
+    color: @brand-primary;
+    // text-decoration: none;
+  }
+}
+.green {
+  color:@primary-green;
+}
+.red {
+  color: @catastrophic;
+}
+.blue {
+  color: @brand-primary;
+}
+.text-white {
+  color: white;
+}
+.text-bold {
+  font-weight: normal;
+}
+.orange {
+  color:@primary-orange;
+}
+
+.center-vertical {
+  display:flex;
+  align-items: center;
+}
+
+label {
+  width: 100%; // hover over checkbox when in label area
+}
+.label {
+  font-weight: normal; // metal labels are not bold
+}
+.label-Platinum {
+  background-color: #80B1D3;
+}
+.label-Gold {
+  background-color: #FFED6F;
+}
+.label-Silver {
+  background-color: #B5B5B5;
+}
+.label-Bronze {
+  background-color: #FDB462;
+}
+.label-Catastrophic {
+  background-color: @catastrophic;
+}
+
+.tooltip-inner {
+  background-color:@gray-dark;
+  border-radius: 0px;
+  font-size: @font-size-base;
+}
+.form-control {
+  border-radius: 0px; // keep input boxes square
+  padding: 8px 10px; // too big!
+  font-size: 1em;
+}
+.form-control:focus {
+  border-color: @btn-default-border; // blue border
+  box-shadow: none;
+}
+.nav > li:focus { // blue border applies to navbar li and navtabs li
+  outline: none;
+}
+
+.ellipsis {
+  text-overflow: ellipsis; 
+  overflow: hidden; 
+  white-space: nowrap; 
+}
+
+// Scaffolding
+// --------------------------------------------------
+
+.container-large{
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  // padding-left: 12.5px;
+  // padding-right: 12.5px;
+  // padding-left: 15px;
+  // padding-right: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.container-large:before,  
+.container-large:after {
+  content: " ";
+  display: table;
+}
+.container-large:after {
+  clear: both;
+}
+
+@media (min-width: @screen-sm-min)  
+{
+  .container-large {
+    width: 768px;
+  }
+}
+@media (min-width: @screen-md-min) 
+{
+  .container-large {
+    width: 992px;
+  }
+}
+
+.container-bg {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+.container-bg-middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+.container-bg-bottom{
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.row { // for container-large
+  // margin-left: -12.5px;
+  // margin-right: -12.5px;
+  // margin-left: -15px;
+  // margin-right: -15px;
+  margin-left: -12.5px;
+  margin-right: -12.5px;
+}
+
+.row-top-5 {
+  margin-top:5px;
+}
+.row-bottom-5 {
+  margin-bottom: 5px;
+}
+.row-top-15 {
+  margin-top:15px;
+}
+.row-bottom-15{
+  margin-bottom:15px;
+}
+.row-top-25 {
+  margin-top:25px;
+}
+.row-bottom-25 {
+  margin-bottom: 25px;
+}
+.row-top-50 {
+  margin-top:50px;
+}
+.row-bottom-50{
+  margin-bottom:50px;
+}
+.row-top-100 {
+  margin-top:100px;
+}
+.row-bottom-100{
+  margin-bottom:100px;
+}
+
+@media (max-width: @screen-sm-max) 
+{
+  .col-md-responsive {
+    margin-top:25px;
+  }
+}
+
+@media (max-width: @screen-xs-max) 
+{
+  .col-sm-responsive {
+    margin-top:25px;
+  }
+}
+
+
+// Backgrounds
+// --------------------------------------------------
+
+.bg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative; 
+}
+
+.bg:before {
+  content: " ";
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  // background: rgba(11, 37, 55, .4);
+  // background: rgba(0, 0, 0, 0.4);
+  
+  // background:rgba(23, 75, 110, 0.7);
+}
+
+// Navbar
+// --------------------------------------------------
+
+@navbar-default-bg: white;
+
+.navbar {
+  border: 0px;
+  margin-bottom: 0px;
+}
+.navbar .glyphicon {
+  font-size: 19px;
+  vertical-align: middle;
+}
+.navbar > .container {
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.navbar-brand {
+  display: block;
+  height: 39px;
+  width:216px;
+  background:url("../img/logo.png") 0 0 no-repeat;
+}
+
+.navbar-top .navbar-brand{
+  background:url("../img/logo-white.png") 0 0 no-repeat;
+}
+
+.navbar-top .button-scroll {
+  display:none;
+}
+.navbar-scroll .button-top {
+  display:none; // alternate buttons when scrolling or on top
+}
+@media (min-width: 768px) { 
+  .navbar-fixed-top .navbar-collapse {
+    padding-left: 12px;
+    padding-right: 12px; // align chat us properly when navbar is at very top
+  }
+  .navbar-nav > li > a {
+    padding-top:0px;
+    padding-bottom:0px;
+    // padding-bottom: 0px; // since chat icon is too big, give it space so hovering over chat doesn't cause overflow white space
+  }
+  .navbar > .container .navbar-brand,
+  .navbar > .container .navbar-brand-logo {
+    margin-left: 0px; // logo position
+  }
+  ul.nav.navbar-nav.navbar-right {
+    height: 55px; // ul randomly adds 5px otherwise.
+  }
+}
+.navbar-variant(@color, @hover-color, @bg-color) {
+  > li > a {
+    color: @color;
+    
+    &:hover,
+    &:focus {
+      color: @hover-color;
+      background-color: @bg-color;
+    }
+  }
+  > .active > a {
+    &:hover,
+    &:focus {
+      color: @hover-color;
+      background-color: @bg-color;
+    }
+  }
+}
+.navbar-default .navbar-nav {
+  .navbar-variant(@text-color, @text-color, white);
+}
+
+.navbar-header {
+  margin: 8px auto;
+}
+.navbar.navbar-top{
+  background: transparent;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  
+  //positioning
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+}
+.navbar-top .navbar-nav {
+  .navbar-variant(white, @gray-lighter, transparent);
+}
+.navbar.navbar-scroll{
+  background: white;
+  border: 1px solid @btn-default-border;
+}
+.navbar-scroll .navbar-nav {
+ .navbar-variant(@text-color, @primary-orange, white);
+}
+.navbar.navbar-scroll,
+.navbar.navbar-small {
+  box-shadow: rgba(0,0,0,0.1) 0 1px 0; // looks nicer than border
+}
+
+
+
+// Responsive
+.navbar-default .navbar-toggle {
+  border: 0px;
+  margin-right: 0px;
+}
+.navbar-default .navbar-toggle:hover, 
+.navbar-default .navbar-toggle:focus {
+  background-color: white;
+}
+.navbar-collapse {
+  border-top:0px; // list view when click menu-collapsed
+  box-shadow:none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: @primary-orange;
+}
+@media (max-width: @screen-xs-max){
+  .navbar .navbar-collapse {
+    background: white;
+   
+    .navbar-nav>li>a {
+      color: black;
+      &:hover, &:focus {
+        background:@btn-default-bg;
+      }
+    }
+  }
+}
+.container > .navbar-collapse,
+.container > .navbar-header, {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.navbar-toggle {
+  margin-top:0px;
+  margin-bottom: 0px;
+}
+.header li.item {
+  height: 55px;
+  line-height: 55px;
+}
+.navbar-nav > li > a {
+  line-height: 55px;
+}
+.navbar-collapse.collapse.in .btn-collapse-black {
+  border-color: black; 
+  color: black;
+}
+// 
+// Footer
+// --------------------------------------------------
+#footer {
+  border-top: 1px solid @btn-default-border;
+}
+#footer ul li {
+  margin-bottom: 10px;
+}
+
+// Button 
+// -------------------------
+
+button.will-load.loading::after{ //loading, copied from info.html
+  content: ' ';
+  z-index: 2;
+  display: inline-block;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  background: url(../img/spinner.gif);
+  background-size: 16px 16px;
+  opacity: 1.0;
+} 
+button.will-load.loading { // turn gray while loading
+  background-color: @gray-light;
+  border-color:@gray-light;
+}
+
+.btn-lg {
+  font-size: 16px;
+  padding: 9px 27px;
+}
+.btn-md {
+  padding: 7px 21px; 
+}
+.btn-sm {
+  font-size: 12px;
+  padding: 4px 12px;
+}
+.btn {
+  border-radius: 2px;
+  background: white; // necessary for btn-groups (eg uninsured app)
+  color: @text-color; // same as above
+  border: 1px solid @btn-default-border;
+  
+  &:active,
+  &.active  {
+    box-shadow: none; //household size box-shadow
+  }
+
+  &:hover,
+  &:focus {
+    border-color: @gray-light;
+  }
+  
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    .opacity(.3);
+  }
+}
+
+.btn + .btn {
+  margin-left: 5px;
+}
+button {
+  &:focus {
+    outline: none; // blue border
+  }
+}
+.button-variant(@color; @background; @border) {
+  color: @color;
+  // height: @row-info-height;
+  
+  background-color: @background;
+  border-color: @border;
+  border-bottom-color: darken(@border, 30%);
+  
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @color;
+    background-color: darken(@background, 8%);
+        border-color: darken(@border, 8%);
+        border-bottom: 1px solid darken(@border, 22%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @color;
+      background-color: darken(@background, 8%);
+          border-color: darken(@border, 8%);
+    }
+  }
+  &:hover,
+  &:focus,
+  &.focus {
+    color: @color;
+    background-color: darken(@background, 8%);
+        border-color: darken(@border, 8%);
+        border-bottom: 1px solid darken(@border, 22%);
+  }
+}
+
+
+.button-variant-naked(@color, @background-color, @anti-color) {
+  color: @color;
+  
+  background-color: transparent;
+  border-color: @color;
+  
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @anti-color;
+    background-color: @background-color;
+        border-color: @color;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @anti-color;
+      background-color: @background-color;
+          border-color: @color;
+    }
+  }
+  
+  &:hover,
+  &:focus,
+  &.focus {
+    color: @anti-color;
+    background-color: @background-color;
+        border-color: @color;
+  }
+}
+.btn-naked-white {
+  .button-variant-naked(white, rgba(255, 255, 255, .3), white);
+}
+.btn-naked-orange {
+  .button-variant-naked(@primary-orange, @primary-orange, white);
+}
+
+.btn-default {
+  .button-variant(@text-color; white; @btn-default-border);
+}
+.btn-primary {
+  .button-variant(white; @brand-primary; @brand-primary);
+}
+.btn-green {
+  .button-variant(white; @primary-green; @primary-green);
+}
+.btn-red {
+  .button-variant(white; @primary-red; @primary-red);
+}
+.btn-purple {
+  .button-variant(white; @primary-purple; @primary-purple);
+}
+.btn-brown {
+  .button-variant(white; @primary-brown; @primary-brown);
+}
+.btn-orange {
+  .button-variant(white; @primary-orange; @primary-orange);
+}
+
+input[type='text'],
+input[type='email'],
+.bootstrap-select.btn-group,
+.bootstrap-select.btn-group > button 
+{
+  height: 39px;
+}
+
+.bootstrap-select > .btn-default,
+.open .dropdown-toggle.btn-default {
+  border-radius: 0px; // select dropdown radius 0 
+  border-style: none;
+}
+ // eliminate button margin bottom
+.bootstrap-select.btn-group:not(.input-group-btn), .bootstrap-select.btn-group[class*="span"] {
+  margin-bottom: 0px;
+}
+
+// blue outline fix
+.bootstrap-select .btn:focus,.btn:active,.btn:focus, a{
+   outline: none !important;
+}
+
+.bootstrap-select > .btn-default {// just button default, overwrite
+  &:hover, 
+  &:focus {
+    background-color: white;
+  }
+  
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-color: white;
+        border-color: @btn-default-border;
+        
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: white;
+          border-color: @btn-default-border;
+    }
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: #eee;
+          border-color: @btn-default-border;
+    }
+  }
+}
+// Table
+// --------------------------------------------------
+.table > tbody > tr > td {
+  border-top:0px;
+}
+
+// Select menu
+// --------------------------------------------------
+
+.dropdown-menu {
+  border-radius: 0px;
+  z-index: 1050; // must be higher than the navbar
+}
+
+/***********************
+ * Checkbox
+ ***********************/
+
+label {
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+input[type="checkbox"] {
+  margin: 0px;
+}
+input[type="checkbox"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border: 1px solid @btn-default-border;
+  border-radius: 0px;
+  position: relative;
+  cursor:pointer;
+
+  // override styles for IE
+  border-width: 0\0;
+
+  &:focus {
+    outline: none; // blue border
+    // border-color: @brand-primary;
+  }
+
+  &:hover {
+    border-color: @gray-light;
+    .box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.1));
+
+    // no box shadow for IE
+    box-shadow: none e("\9");
+  }
+
+  &:checked::after {
+    content: url(../../img/checkmark.png);
+    display: block;
+    position: absolute;
+    top: -3px;
+    left: -5px;
+  }
+}
+
+
+// Alerts
+// --------------------------------------------------
+
+.close {
+  font-size:28px;
+  font-weight: normal;
+  &:before {
+    content:"\00d7";
+  }
+  
+  opacity: 1;
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+
+
+//
+// Social Buttons: perfecticons.com
+// --------------------------------------------------
+
+@font-face {
+    font-family: 'si';
+    // src: url('/socicon.eot');
+    src: url('../fonts/socicon.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/socicon.woff') format('woff'),
+         url('../fonts/socicon.ttf') format('truetype'),
+         url('../fonts/socicon.svg#icomoonregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+ 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family:si;
+        src: url('../fonts/socicon.svg') format(svg);
+    }
+}
+
+.soc, 
+.soc-lg {
+    overflow:hidden;
+    margin:0; padding:0;
+    list-style:none;
+}
+
+.soc li, 
+.soc-lg li {
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+}
+
+.soc li a,
+.soc-lg li a {
+    font-family:si!important;
+    font-style:normal;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    box-sizing:border-box;
+    overflow:hidden;
+    text-decoration:none;
+    text-align:center;
+    display:block;
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    margin-right: 10px;
+    color: #ffffff;
+    background-color: none;
+}
+.soc-lg li a {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 33px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  margin-right: 25px;
+  color: #ffffff;
+  background-color: none;
+}
+.soc-icon-last{
+    margin:0 !important;
+}
+
+.soc-twitter {
+    background-color: #4da7de;
+}
+.soc-twitter:before {
+    content:'a';
+}
+.soc-facebook {
+    background-color: #3e5b98;
+}
+.soc-facebook:before {
+    content:'b';
+}
+.soc-google {
+    background-color: #d93e2d;
+}
+.soc-google:before {
+    content:'c';
+}
+
+//
+// Modal
+// --------------------------------------------------
+
+body.modal-open {
+  overflow: hidden; // stop background from scrolling
+}
+.modal-open .modal {
+  overflow-y: scroll !important;
+}
+
+
+
+//
+// Ajax open
+// --------------------------------------------------
+.btn-group.bootstrap-select.with-ajax.open {
+  height: 44px; 
+  input {
+    height:44px;
+    padding-left:10px; 
+  }
+  
+  &:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    min-width: 300px;
+    width: auto;
+  }
+  
+  .dropdown-menu li a {
+    border-top: 1px solid @btn-default-border;
+    padding:10px;
+  }
+  .dropdown-menu > li.dropdown-hover {
+    background-color: #f5f5f5;
+  }
+  .dropdown-menu {
+    top:0px; //position
+    margin:0px;
+    border:0px;
+    box-shadow:none;
+    padding: 0px; // no extra space below lis
+    font-size: 16px; // size on hero
+  }
+}
+
+
+//
+// Clean
+// --------------------------------------------------
+input::-webkit-outer-spin-button, // to hide spin on input number
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.clean {
+  input[type='text'],
+  input[type='number'] { // needs to go first to have border negated in next paragraph
+    box-shadow:none;
+    display: inline-block;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  
+  input[type='text'],
+  input[type='number'],
+  .selectize-input {
+    padding: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 0px;
+    text-align: center;
+  }
+  
+  .bootstrap-select > .btn,
+  input[type='text'],
+  input[type='number'],
+  .selectize-input {
+    color:@primary-orange;
+  
+    border-bottom: 1px solid @btn-default-border;
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid @text-color;
+    }
+  }
+  
+  .bootstrap-select > .btn-default:hover,
+  .bootstrap-select > .btn-default:focus,
+  .open > .dropdown-toggle.btn-default{ 
+    background-color: white;   
+  }
+  .bootstrap-select.btn-group {
+    height: auto;
+  }
+  .open .dropdown-toggle.btn-default,
+  .open .dropdown-toggle.btn-default:hover,
+  .open .dropdown-toggle.btn-default:focus {
+    color: @primary-orange; // color when opened
+    border-bottom: 1px solid @text-color;// bottom border does not disappear
+  }
+  .bootstrap-select:not([class*="span"]):not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: auto; // stay inline with text
+  }
+  .open > .dropdown-toggle.btn-default:hover,
+  .open > .dropdown-toggle.btn-default:focus {
+    background: transparent;
+  }
+  
+  .bootstrap-select.btn-group {
+    vertical-align: top;
+  }
+  .btn-group.open .dropdown-toggle {
+    box-shadow: none;
+  }
+  .bootstrap-select.btn-group .btn .caret {
+    right: 3px;
+  }
+  .bootstrap-select.btn-group .btn .filter-option {
+    text-align: center;
+  }
+}
+.clean form input.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+
+
+
+//
+// Icon Moon
+// --------------------------------------------------
+
+@font-face {
+  font-family: 'icomoon';
+  src:url('../fonts/icomoon.eot?-9e7mnu');
+  src:url('../fonts/icomoon.eot?#iefix-9e7mnu') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?-9e7mnu') format('truetype'),
+    url('../fonts/icomoon.woff?-9e7mnu') format('woff'),
+    url('../fonts/icomoon.svg?-9e7mnu#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chat:before {
+  content: "\e604";
+}
+.icon-info:before {
+  content: "\e601";
+}
+.icon-map:before {
+  content: "\e600";
+}
+.icon-doctor:before {
+  content: "\e603";
+}
+.icon-stroke:before {
+  content: "\e607";
+}
+.icon-depression:before {
+  content: "\e608";
+}
+.icon-baby:before {
+  content: "\e609";
+}
+.icon-tooth:before {
+  content: "\e60a";
+}
+.icon-concussion:before {
+  content: "\e610";
+}
+.icon-limb:before {
+  content: "\e60f";
+}
+.icon-heart:before {
+  content: "\e60e";
+}
+.icon-happy:before {
+  content: "\e60d";
+}
+.icon-cancer:before {
+  content: "\e60c";
+}
+.icon-flu:before {
+  content: "\e60b";
+}
+
+// Animations
+.fadeAnimate{
+  // -webkit-transform: translateZ(0);
+  -webkit-transition-duration: 600ms;
+  transition-duration: 600ms; 
+}
+.fadeAnimate-in.ng-enter{
+  // -webkit-transform: translateZ(0);
+  -webkit-transition-duration: 600ms;
+  transition-duration: 600ms; 
+}
+.fadeAnimate-in.ng-hide-remove{
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms; 
+}
+.fadeAnimate.ng-leave {
+  opacity:1;
+}
+.fadeAnimate.ng-leave-active{
+  opacity: 0;
+}
+.fadeAnimate-in.ng-enter, .fadeAnimate.ng-enter {
+  opacity:0;
+}
+.fadeAnimate-in.ng-enter-active, .fadeAnimate.ng-enter-active{
+  opacity: 1;
+}
+.fadeAnimate-in.ng-hide,.fadeAnimate.ng-hide {
+  opacity:0;
+}
+
+
+_::-webkit-full-page-media, _:future, :root .fadeAnimate,.fadeAnimate-in {
+   -webkit-transition-duration: 0ms!important;
+}
