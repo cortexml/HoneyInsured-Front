@@ -6,6 +6,14 @@ Unfortunately, we had to shutdown last year due to a lack of funding and uncerta
 
 A functional version is still working at https://honeyinsured.com, but some functions such as doctor search and enrollement no longer work and the data is outdated.
 
+How it Works (<a href="http://theatln.tc/1SDHdVe">The Atlantic</a>):
+
+<a href="http://theatln.tc/1SDHdVe"><img src="http://gracegeeg.com/assets/img/atlantic.jpg" width="140"></a>
+
+Story about Founders (<a href="https://www.forbes.com/sites/sarahhedgecock/2015/08/28/how-two-harvard-grads-want-to-change-the-face-of-health-insurance/">Forbes<a>): 
+
+<a href="https://www.forbes.com/sites/sarahhedgecock/2015/08/28/how-two-harvard-grads-want-to-change-the-face-of-health-insurance/"><img src="http://gracegeeg.com/assets/img/forbes.jpg" width="140"></a>
+
 For those looking for affordable health insurance, here's what you should know:
 
 Insurance basics: First, insurance is a tradeoff. You pay more for insurance or pay more when accidents happen. You also pay more for insurance to not be limited to smaller networks and to not require referrals to see specialists.
@@ -21,14 +29,5 @@ In places with many plans, it’s common for a plan to be worse off than other p
 HoneyInsured's recommendation takes network size, benefits, your spendings all into account. For our suggested “Handpicked” plans, we also automatically filter out plans that are clearly worse off in terms of benefits and other measures.
 
 Our Site: https://honeyinsured.com 
-
-How it Works (<a href="http://theatln.tc/1SDHdVe">The Atlantic</a>):
-
-<a href="http://theatln.tc/1SDHdVe"><img src="http://gracegeeg.com/assets/img/atlantic.jpg" width="140"></a>
-
-Story about Founders (<a href="https://www.forbes.com/sites/sarahhedgecock/2015/08/28/how-two-harvard-grads-want-to-change-the-face-of-health-insurance/">Forbes<a>): 
-
-<a href="https://www.forbes.com/sites/sarahhedgecock/2015/08/28/how-two-harvard-grads-want-to-change-the-face-of-health-insurance/"><img src="http://gracegeeg.com/assets/img/forbes.jpg" width="140"></a>
-
 
 Check out our youtube video for more information https://youtu.be/JUa5U_uNyPA
