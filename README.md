@@ -20,6 +20,15 @@ In places with many plans, it’s common for a plan to be worse off than other p
 
 HoneyInsured's recommendation takes network size, benefits, your spendings all into account. For our suggested “Handpicked” plans, we also automatically filter out plans that are clearly worse off in terms of benefits and other measures.
 
-Our Site: https://honeyinsured.com How it Works (The Atlantic): http://theatln.tc/1SDHdVe
+Our Site: https://honeyinsured.com 
+
+How it Works (<a href="http://theatln.tc/1SDHdVe">The Atlantic</a>):
+
+<a href="http://theatln.tc/1SDHdVe"><img src="http://gracegeeg.com/assets/img/atlantic.jpg" width="140"></a>
+
+Story about Founders (<a href="https://www.forbes.com/sites/sarahhedgecock/2015/08/28/how-two-harvard-grads-want-to-change-the-face-of-health-insurance/">Forbes<a>): 
+
+<a href="https://www.forbes.com/sites/sarahhedgecock/2015/08/28/how-two-harvard-grads-want-to-change-the-face-of-health-insurance/"><img src="http://gracegeeg.com/assets/img/forbes.jpg" width="140"></a>
+
 
 Check out our youtube video for more information https://youtu.be/JUa5U_uNyPA
